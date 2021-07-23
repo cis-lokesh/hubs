@@ -8,3 +8,13 @@
     width: 272px;
   }
 }
+
+:local(.label-style) {
+  color: #fff;
+  margin: 0;
+  font-size: 12px;
+  
+  a {
+    font-size: 12px;
+  }
+}
