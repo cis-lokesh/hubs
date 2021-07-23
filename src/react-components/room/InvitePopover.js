@@ -21,19 +21,19 @@ function InvitePopoverContent({ url, shortUrl, code, embed, inviteRequired, fetc
           <CopyableTextInputField
             label={<FormattedMessage id="invite-popover.room-link" defaultMessage="Room Link" />}
             value={url}
-            buttonPreset="accent3"
+            buttonPreset="accent5"
           />
           <CopyableTextInputField
             label={<FormattedMessage id="invite-popover.room-code" defaultMessage="Room Code" />}
             value={code}
-            buttonPreset="accent4"
+            buttonPreset="accent5"
             description={
-              <>
-                Enter code on{" "}
+              <p className={styles.labelStyle}>
+                <span>Enter code on </span>
                 <a href={shortUrl} target="_blank" rel="noopener noreferrer">
                   {shortUrl.replace("https://", "")}
                 </a>
-              </>
+              </p>
             }
           />
           <CopyableTextInputField
@@ -94,10 +94,12 @@ export function InvitePopoverButton({
           revokeInvite={revokeInvite}
         />
       )}
-      placement="top-start"
-      offsetDistance={28}
+      showTitle={true}
+      placement="top"
+      offsetDistance={0}
       initiallyVisible={initiallyVisible}
       popoverApiRef={popoverApiRef}
+      showArrow={true}
     >
       {({ togglePopover, popoverVisible, triggerRef }) => (
         <ToolbarButton
@@ -105,7 +107,8 @@ export function InvitePopoverButton({
           icon={<InviteIcon />}
           selected={popoverVisible}
           onClick={togglePopover}
-          label={title}
+          // label={title}
+          preset="custom3"
           {...rest}
         />
       )}

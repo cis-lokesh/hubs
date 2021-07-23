@@ -38,7 +38,9 @@ export function Popover({
   isVisible,
   onChangeVisible,
   popoverApiRef,
-  place
+  place,
+  showTitle,
+  showArrow
 }) {
   const [_visible, _setVisible] = useState(initiallyVisible);
   const visible = isVisible === undefined ? _visible : isVisible;
@@ -144,10 +146,12 @@ export function Popover({
               style={fullscreen ? undefined : popperStyles}
               {...attributes.popper}
             >
-              {/* <div className={styles.header}>
-              <Close onClick={closePopover} className={classNames({ [styles.placeClose]: place == "place" })} />
-               <h5>{title}</h5> 
-            </div> */}
+              {showTitle && (
+                <div className={styles.header}>
+                  <span onClick={closePopover} className={styles.closeBtn}>x</span>
+                  <p className={styles.headTitle}>{title}</p>
+                </div>
+              )}
               <div
                 className={classNames(styles.content, {
                   [styles.placeContent]: place == "place"
@@ -159,11 +163,11 @@ export function Popover({
                   Content
                 )}
               </div>
-              {/* {!fullscreen && (
+              {!fullscreen && showArrow && (
               <div ref={setArrowElement} className={styles.arrow} style={arrowStyles}>
                 <PopoverArrow />
               </div>
-            )} */}
+            )}
             </div>
           </div>,
           document.body
@@ -179,12 +183,16 @@ Popover.propTypes = {
   children: PropTypes.func.isRequired,
   content: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   disableFullscreen: PropTypes.bool,
-  popoverApiRef: PropTypes.object
+  popoverApiRef: PropTypes.object,
+  showTitle: PropTypes.bool,
+  showArrow: PropTypes.bool
 };
 
 Popover.defaultProps = {
   initiallyVisible: false,
   placement: "auto",
   offsetSkidding: 0,
-  offsetDistance: 8
+  offsetDistance: 8,
+  showTitle: false,
+  showArrow: false
 };
