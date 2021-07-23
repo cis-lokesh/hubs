@@ -1712,9 +1712,9 @@ class UIRoot extends Component {
                 }
                 toolbarAdmin={
                   <>
-                    {configs.isAdmin &&
+                    {configs.isAdmin == "admin" &&
                       entered && <SharePopoverContainer scene={this.props.scene} hubChannel={this.props.hubChannel} />}
-                    {configs.isAdmin &&
+                    {configs.isAdmin == "admin" &&
                       entered && (
                         <PlacePopoverContainer
                           scene={this.props.scene}
@@ -1723,11 +1723,11 @@ class UIRoot extends Component {
                           showNonHistoriedDialog={this.showNonHistoriedDialog}
                         />
                       )}
-                    <InvitePopoverContainer
+                    {isModerator && <InvitePopoverContainer
                       hub={this.props.hub}
                       hubChannel={this.props.hubChannel}
                       scene={this.props.scene}
-                    />
+                    />}
                   </>
                 }
               />

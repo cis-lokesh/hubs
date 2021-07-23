@@ -39,8 +39,9 @@ export function MicSetupModal({
       beforeTitle={<BackButton onClick={onBack} />}
       className={classNames(styles.micModal, className)}
       {...rest}
+      overrideStyles={styles}
     >
-      <Column center padding margin className={styles.content}>
+      <Column center padding className={styles.content}>
         <p>
           <FormattedMessage
             id="mic-setup-modal.check-mic"

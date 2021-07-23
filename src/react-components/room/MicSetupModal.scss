@@ -1,5 +1,28 @@
 @use "../styles/theme.scss";
 
+:local(.modal) {
+  position: relative;
+  background: url("../../assets/images/modal-image.png");
+   color: theme.$text5-color;
+  min-width: 395px;
+  margin: 0px auto;
+  padding: 50px 100px 20px;
+  min-height: 415px;
+  width: auto;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  max-width: 500px; //500px;        
+
+  @media screen and (min-width: 992px) {
+    .Modal__modal__1Ursl {
+      min-width: 430px;
+      min-height: 335px;
+      max-width: 395px;
+      padding: 40px 20px 20px;
+    }
+  }
+}
+
 :local(.mic-modal){
   position: relative;
 //   // display: flex;
@@ -80,7 +103,7 @@
 
   @media screen and (min-width: theme.$breakpoint-sm){
     min-width: 200px;
-    max-width: 300px;
+    max-width: 330px;
     padding: 25px 20px 20px;
     margin-top: 0%;
   }
@@ -158,4 +181,25 @@
 
 :local(.large-toolbar-button) {
   width: 96px;
+}
+
+
+:local(.before-title) {
+  align-items: stretch;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+:local(.modal-header) {
+  justify-content: space-between;
+  width: 80%;
+  text-align: center;
+  max-width: 242px;
+  margin: 0px auto;
+  position: relative;
+  right: 20px;
+  font-size: 20px;
+  display: flex;
 }

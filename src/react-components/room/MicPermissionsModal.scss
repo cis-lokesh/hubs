@@ -81,3 +81,15 @@
   justify-content: center;
   margin-bottom: 1em;
 }
+
+:local(.modal-header) {
+  justify-content: space-between;
+  width: 60%;
+  text-align: center;
+  max-width: 200px;
+  margin: 0px auto;
+  position: relative;
+  right: 20px;
+  font-size: 20px;
+  display: flex;
+}

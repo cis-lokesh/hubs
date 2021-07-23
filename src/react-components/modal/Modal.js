@@ -26,7 +26,13 @@ export function Modal({
       )}
     >
       {(title || beforeTitle || afterTitle) && (
-        <div className={classNames(styles.header, { [styles.leaveHeader]: leave }, className)}>
+        <div
+          className={classNames(
+            overrideStyles.modalHeader ? overrideStyles.modalHeader : styles.header,
+            { [styles.leaveHeader]: leave },
+            className
+          )}
+        >
           <div
             className={classNames(
               overrideStyles.beforeTitle || styles.beforeTitle,
