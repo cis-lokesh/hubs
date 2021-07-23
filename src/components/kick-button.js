@@ -1,6 +1,6 @@
 AFRAME.registerComponent("kick-button", {
   schema: {
-    color: {default: '#FFF'}
+    color: { default: "#FFF" }
   },
 
   init() {
@@ -24,21 +24,6 @@ AFRAME.registerComponent("kick-button", {
     this.el.sceneEl.emit("action_kick_client", { clientId });
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /**
  * AFRAME.registerComponent("kick-button", {
