@@ -15,6 +15,7 @@ export function MicPermissionsModal({ className, error, onClickErrorButton, erro
       beforeTitle={<BackButton onClick={onBack} />}
       className={className}
       {...rest}
+      overrideStyles={styles}
     >
       <Column padding center margin className={styles.content}>
         <b>

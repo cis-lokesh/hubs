@@ -168,7 +168,7 @@ export function PeopleSidebar({ people, onSelectPerson, onClose, showMuteAll, on
                 type="button"
                 onClick={e => onSelectPerson(person, e)}
               >
-                <p>{getPersonName(person, intl)}</p>
+                <p className={styles.userName}>{getPersonName(person, intl)}</p>
                 {person.roles.owner && (
                   <StarIcon
                     title={intl.formatMessage({ id: "people-sidebar.moderator-label", defaultMessage: "Moderator" })}

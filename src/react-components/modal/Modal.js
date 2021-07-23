@@ -12,12 +12,13 @@ export function Modal({
   className,
   disableFullscreen,
   leave,
-  verify
+  verify,
+  overrideStyles
 }) {
   return (
     <div
       className={classNames(
-        styles.modal,
+        overrideStyles.modal ? overrideStyles.modal : styles.modal,
         { [styles.smFullscreen]: !disableFullscreen },
         { [styles.leave]: leave },
         { [styles.verify]: verify },
@@ -26,7 +27,13 @@ export function Modal({
     >
       {(title || beforeTitle || afterTitle) && (
         <div className={classNames(styles.header, { [styles.leaveHeader]: leave }, className)}>
-          <div className={classNames(styles.beforeTitle, { [styles.beforeTitleLeave]: leave }, className)}>
+          <div
+            className={classNames(
+              overrideStyles.beforeTitle || styles.beforeTitle,
+              { [styles.beforeTitleLeave]: leave },
+              className
+            )}
+          >
             {beforeTitle}
           </div>
           <h3>{title}</h3>
@@ -47,5 +54,10 @@ Modal.propTypes = {
   contentClassName: PropTypes.string,
   disableFullscreen: PropTypes.bool,
   leave: PropTypes.bool,
-  verify: PropTypes.bool
+  verify: PropTypes.bool,
+  overrideStyles: PropTypes.object
+};
+
+Modal.defaultProps = {
+  overrideStyles: {}
 };
