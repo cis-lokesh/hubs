@@ -17,10 +17,14 @@ export function AvatarModal({
   verify
 }) {
   return (
-    <main className="sign-inUp-wrap d-flex flex-wrap align-items-center justify-content-center">
+    <main
+      className={classNames("d-flex", "flex-wrap", "align-items-center", "justify-content-center", styles.signInUpWrap)}
+    >
       <div className="container">
-        <div className="signinUp-box d-flex flex-wrap justify-content-center">
-          <div className="signinUp-wrap">
+        <div
+          className={classNames(styles.avatarcont, styles.signinUpBox, "d-flex", "flex-wrap", "justify-content-center")}
+        >
+          <div className={classNames("signinUp-wrap")}>
             {children}
             {/* <div
               className={classNames(

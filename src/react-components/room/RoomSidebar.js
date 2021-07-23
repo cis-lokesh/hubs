@@ -96,7 +96,7 @@ export function SceneInfo({ accountId, scene, showAttributions, canChangeScene, 
       </h2>
       <div className={styles.sceneScreenshotContainer}>
         {showSceneLink ? (
-          <a href={scene.url} target="_blank" rel="noopener noreferrer">
+          <a className={styles.sceneLink} href={scene.url} target="_blank" rel="noopener noreferrer">
             <img className={styles.sceneScreenshotImage} src={scene.screenshot_url} />
           </a>
         ) : (

@@ -1,0 +1,95 @@
+/* 
+
+.avatar-setup .form-head {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 12px;
+}
+
+.avatar-setup .back-btn {
+    font-family: 'Sunflower', sans-serif;
+    font-size: 10px;
+    line-height: 13px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #fff;
+}
+
+.avatar-setup h5 {
+    font-family: 'Sunflower', sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: .2px;
+}
+
+.avatar-setup .form-head {
+    width: 265px;
+}
+
+.avatar-setup .form-body .content-sec {
+    margin-bottom: 15px;
+}
+
+.avatar-setup  label {
+    font-family: 'Sunflower', sans-serif;
+    font-size: 10px;
+    line-height: 13px;
+    text-align: left;
+    color: #fff;
+    display: block;
+    letter-spacing: .2px;
+}
+
+.avatar-setup input {
+    height: 32px;
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 12px;
+    font-family: 'Sunflower', sans-serif;
+    line-height: 15px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    width: 100%;
+}
+
+.avatar-setup input::placeholder {
+    color: #fff;
+    font-size: 12px;
+}
+
+.avatar-setup .form-head h5 {
+    padding-left: 51px;
+}
+
+.avatar-setup .img-box {
+    margin-top: 14px;
+    width: 100%;
+}
+
+.avatar-setup .form-body {
+    width: 220px;
+    position: relative;
+}
+
+.file-upload {
+    position: absolute;
+    bottom: 56px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.file-upload .form-label {background: #fff;padding: 6px 16px;border-radius: 6px;border-color: #fff;font-weight: bold;font-size: 12px;line-height: 14px;text-align: center;letter-spacing: -0.02em;color: #6b6d75;font-family: 'Sunflower', sans-serif;margin: 0 auto;text-align: center;max-width: 107px;}
+
+.file-upload input {
+    display: none;
+}
+
+.avatar-setup .img-box img {
+    width: 100%;
+} */

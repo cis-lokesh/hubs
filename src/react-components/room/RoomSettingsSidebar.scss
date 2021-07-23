@@ -1,15 +1,16 @@
 @use "../styles/theme.scss";
 
 :local(.room-setting){
-  font-family: Roboto;
+  font-family: Sans Serif;
   &:h5{
     font-size: 18px;
     font-weight: 800;
   }
 }
  
-a{
+:local(a){
   color: theme.$custom2-color !important;
+  font-family: Sans Serif;
 }
 
 

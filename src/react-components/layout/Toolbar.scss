@@ -8,38 +8,58 @@
   position:absolute;
   max-width: 220px;
   left:5%;
-  top: 85%;
+  bottom: 0;
   transform: translateY(-50%);
   pointer-events: auto;
-   
-  @media (max-width: theme.$breakpoint-lg) {
-    left:40%;
-    top:15%;
-    padding: 12px 24px;
-    justify-content: space-between;
-  }
-  @media (max-width: theme.$breakpoint-sm) {
-    top:10%;
-    left:10%;
-    padding: 12px 24px;
-    justify-content: space-between;
-  } justify-content: space-between;
 
-  @media (max-width: theme.$breakpoint-md) {
-    left:40%;
-    top:20%;
-    padding: 12px 24px;
-    justify-content: space-between;
+
+
+  @media only screen and (max-width:1050px){
+    bottom: auto;
+    top: 110px;
+    left: 22px;
   }
+   
+  // @media (max-width: theme.$breakpoint-lg) {
+  //   left:40%;
+  //   top:15%;
+  //   padding: 12px 24px;
+  //   justify-content: space-between;
+  // }
+  // @media (max-width: theme.$breakpoint-sm) {
+  //   top:10%;
+  //   left:10%;
+  //   padding: 12px 24px;
+  //   justify-content: space-between;
+  // } justify-content: space-between;
+
+  // @media (max-width: theme.$breakpoint-md) {
+  //   left:40%;
+  //   top:20%;
+  //   padding: 12px 24px;
+  //   justify-content: space-between;
+  // }
 }
 
 :local(.content) {
+
   position: relative;
-  width: 200px;
-  height: 180px;
-  padding: 0;
-  left: 0;
-  top: 0;
+    width: 200px;
+    height: 180px;
+    padding: 0;
+    left: 76px;
+    top: 0;
+
+
+  @media only screen and (max-width:1050px){
+    position: relative;
+    width: 200px;
+    height: 180px;
+    padding: 0;
+    left: 109px;
+    top: 23px;
+  }
+   
   @media (min-width: theme.$breakpoint-lg) {
     flex: 0;
 

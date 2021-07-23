@@ -70,9 +70,12 @@ import { FormattedMessage, useIntl } from "react-intl";
 //   return VolumeOffIcon;
 // }
 
-export function PeopleList({ active, children, ...props }) {
+export function PeopleList({ active, disabled, children, ...props }) {
   return (
-    <button className={className(styles.peopleList, { [styles.active]: active })} {...props}>
+    <button
+      className={className(styles.peopleList, { [styles.active]: active, [styles.disable]: disabled })}
+      {...props}
+    >
       {children}
     </button>
   );
@@ -144,14 +147,16 @@ export function PeopleSidebar({ people, onSelectPerson, onClose, showMuteAll, on
           </PeopleList>
         </li>
         <li style={style}>
-          <PeopleList active={peoplestatus === "pending"} onClick={() => setPeople("pending")}>
+          {/* <PeopleList active={peoplestatus === "pending"} disabled={true} onClick={() => setPeople("pending")}> */}
+          <PeopleList active={peoplestatus === "pending"} disabled={true}>
             <span>
               <FormattedMessage id="people-list.pending" defaultMessage="Pending" />
             </span>
           </PeopleList>
         </li>
         <li style={style}>
-          <PeopleList active={peoplestatus === "online"} onClick={() => setPeople("online")}>
+          {/* <PeopleList active={peoplestatus === "online"} disabled={true} onClick={() => setPeople("online")}> */}
+          <PeopleList active={peoplestatus === "online"} disabled={true}>
             <span>
               <FormattedMessage id="people-list.online" defaultMessage="Online" />
             </span>

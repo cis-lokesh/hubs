@@ -7,7 +7,7 @@ import classNames from "classnames";
 export const GoBack = ({ ...rest }) => {
   return (
     <>
-      <span className="btn-next circle-btn" onClick={onClick} {...rest}>
+      <span className={classNames("btn-next", "circle-btn")} onClick={onClick} {...rest}>
         <img src={arrowIcon} />
       </span>
     </>
@@ -16,7 +16,7 @@ export const GoBack = ({ ...rest }) => {
 export const Close = ({ className, onClick, ...rest }) => {
   return (
     <>
-      <span className={classNames("btn-close circle-btn", className)} onClick={onClick} {...rest}>
+      <span className={classNames("btn-close", "circle-btn", className)} onClick={onClick} {...rest}>
         <img src={closeIcon} />
       </span>
     </>

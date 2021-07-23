@@ -1,7 +1,7 @@
 AFRAME.registerComponent("kick-button", {
   schema: {
     color: {default: '#FFF'}
-  }
+  },
 
   init() {
     this.onClick = () => {

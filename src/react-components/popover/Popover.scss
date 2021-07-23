@@ -8,7 +8,9 @@
   background-color: theme.$background1-color;
   border: 1px solid theme.$background1-color;
   min-width: 160px;
-  z-index: 10;
+  
+  z-index: 99999999 !important;
+   
   max-height: calc(100vh - 40vh);
 
   :local(.content) {
@@ -149,11 +151,21 @@
     background-repeat: no-repeat;
     min-height: 100px;
     max-height: 400px;
-    width: 490px;
+    min-width: 450px;
     background-repeat: no-repeat;
     background-size: 100% 80%;
     padding: 20px;
     border:none;
+
+    transform: inherit !important;
+    right: 48px !important;
+    /* max-width: 449px !important; */
+    left: auto !important;
+    bottom: 71px !important;
+
+    @media only screen and (max-width:1050px){
+      right: 25px !important;
+    }
    
 
 }
@@ -167,11 +179,36 @@
 }
 
 :local(.place-close){
-  right:2% !important;
-  top:70% !important;
+  
+  // right: 3% !important;
+  // top: 72% !important;
+  right: 70px !important;
+  top: auto !important;
+  bottom: 180px !important;
+
+  @media only screen and (max-width:1050px){
+    right: 31px !important;
+    top: auto !important;
+    bottom: 180px !important;
+  }
+  
+
+
 }
 
 
 :local(.place-container){
-  right:10%;
+  right: 0;
+  position: relative;
+  height: 100%;
 }
+
+
+
+
+
+
+
+
+
+
