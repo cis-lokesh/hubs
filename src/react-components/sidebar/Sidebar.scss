@@ -26,6 +26,9 @@
   position: absolute;
   left: 0;
   margin-left: 16px;
+  span {
+    font-weight: 300;
+  }
 }
 
 :local(.after-title) {

@@ -141,6 +141,9 @@
   left: 0;
   // margin-left: 16px;
   margin-left: 125px;
+  span {
+    font-weight: 300;
+  }
 }
 
 :local(.before-title-leave){
