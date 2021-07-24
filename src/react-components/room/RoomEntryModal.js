@@ -6,7 +6,7 @@ import { Button } from "../input/Button";
 import { ReactComponent as EnterIcon } from "../icons/Enter.svg";
 import { ReactComponent as VRIcon } from "../icons/VR.svg";
 import { ReactComponent as BroadcastIcon } from "../icons/Broadcast.svg";
-import { ReactComponent as SettingsIcon } from "../icons/Settings.svg";
+import { ReactComponent as SettingsIcon } from "../icons/SettingIcon.svg";
 import styles from "./RoomEntryModal.scss";
 import styleUtils from "../styles/style-utils.scss";
 import { useCssBreakpoints } from "react-use-css-breakpoints";
@@ -46,24 +46,24 @@ export function RoomEntryModal({
         </div> */}
         <Column center className={styles.buttons}>
           {showJoinRoom && (
-            <Button preset="accent" onClick={onJoinRoom}>
-              {/* <EnterIcon /> */}
+            <Button preset="accent" style={{ display: "flex" }} onClick={onJoinRoom}>
+              <EnterIcon />
               <span>
                 <FormattedMessage id="room-entry-modal.join-room-button" defaultMessage="Join" />
               </span>
             </Button>
           )}
           {showEnterOnDevice && (
-            <Button preset="accent" onClick={onEnterOnDevice}>
-              {/* <VRIcon /> */}
+            <Button preset="accent" style={{ display: "flex" }} onClick={onEnterOnDevice}>
+              <VRIcon />
               <span>
-                <FormattedMessage id="room-entry-modal.enter-on-device-button" defaultMessage="Enter On VR" />
+                <FormattedMessage id="room-entry-modal.enter-on-device-button" defaultMessage="Enter On Device" />
               </span>
             </Button>
           )}
           {showSpectate && (
-            <Button preset="accent" onClick={onSpectate}>
-              {/* <BroadcastIcon /> */}
+            <Button preset="accent" style={{ display: "flex" }} onClick={onSpectate}>
+              <BroadcastIcon />
               <span>
                 <FormattedMessage id="room-entry-modal.spectate-button" defaultMessage="Streamer" />
               </span>
@@ -72,9 +72,9 @@ export function RoomEntryModal({
           {showOptions && (
             <>
               {/* <hr className={styleUtils.showLg} /> */}
-              <Button preset="basic-accent" onClick={onOptions}>
+              <Button preset="basic-accent" style={{ display: "flex" }} onClick={onOptions}>
                 {/* className={styleUtils.showLg} */}
-                {/* <SettingsIcon /> */}
+                <SettingsIcon />
                 <span>
                   <FormattedMessage id="room-entry-modal.options-button" defaultMessage="Options" />
                 </span>
