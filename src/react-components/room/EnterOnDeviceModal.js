@@ -27,6 +27,7 @@ export function EnterOnDeviceModal({
       beforeTitle={<BackButton onClick={onBack} />}
       className={className}
       {...rest}
+      overrideStyles={styles}
     >
       <Column center={loadingCode ? "both" : true} alignleft padding grow>
         {loadingCode ? (
@@ -112,7 +113,21 @@ export function EnterOnDeviceModal({
                         defaultMessage="You have a VR headset connected to this device."
                       />
                     </small>
-                    <Button preset="accent5" sm onClick={onEnterOnConnectedHeadset}>
+                    <Button
+                      preset="accent5"
+                      lg
+                      style={{
+                        minWidth: "unset",
+                        display: "flex",
+                        flexWrap: "nowrap",
+                        alignContent: "center",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        flexDirection: "row",
+                        width: "auto"
+                      }}
+                      onClick={onEnterOnConnectedHeadset}
+                    >
                       <VRIcon />
                       <span>
                         <FormattedMessage id="enter-on-device-modal.enter-in-vr-button" defaultMessage="Enter in VR" />

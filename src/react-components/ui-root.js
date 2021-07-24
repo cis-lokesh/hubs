@@ -1344,6 +1344,8 @@ class UIRoot extends Component {
       }
     ];
 
+    console.log(configs.isAdmin());
+
     return (
       <MoreMenuContextProvider>
         <ReactAudioContext.Provider value={this.state.audioContext}>
@@ -1589,7 +1591,7 @@ class UIRoot extends Component {
                   <>
                     <CanvasMenu
                       onClick={() => {
-                        // console.log(configs.isAdmin);
+                        // console.log(configs.isAdmin());
                         this.setState({ showSocial: !this.state.showSocial });
                       }}
                     />
@@ -1713,17 +1715,15 @@ class UIRoot extends Component {
                 }
                 toolbarAdmin={
                   <>
-                    {configs.isAdmin &&
-                      entered && <SharePopoverContainer scene={this.props.scene} hubChannel={this.props.hubChannel} />}
-                    {configs.isAdmin &&
-                      entered && (
-                        <PlacePopoverContainer
-                          scene={this.props.scene}
-                          hubChannel={this.props.hubChannel}
-                          mediaSearchStore={this.props.mediaSearchStore}
-                          showNonHistoriedDialog={this.showNonHistoriedDialog}
-                        />
-                      )}
+                    {entered && <SharePopoverContainer scene={this.props.scene} hubChannel={this.props.hubChannel} />}
+                    {entered && (
+                      <PlacePopoverContainer
+                        scene={this.props.scene}
+                        hubChannel={this.props.hubChannel}
+                        mediaSearchStore={this.props.mediaSearchStore}
+                        showNonHistoriedDialog={this.showNonHistoriedDialog}
+                      />
+                    )}
                     {isModerator && (
                       <InvitePopoverContainer
                         hub={this.props.hub}
