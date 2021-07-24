@@ -51,7 +51,7 @@ export function AvatarSettingsContent({
   return (
     <Column as="form" className={styles.content} {...rest} style={{ padding: "0px 16px 5px 16px" }}>
       <div className={classNames(styles.themeForm, styles.avatarSetup)}>
-        <div
+        {/* <div
           className={classNames(styles.formHead, "d-flex", "align-items-center", { [styles.Head]: avatarSetting })}
           style={{
             width: "311px",
@@ -61,7 +61,7 @@ export function AvatarSettingsContent({
             left: "-23px"
           }}
         >
-          <a
+           <a
             href="javascript:();"
             onClick={onBack}
             className={classNames(styles.backBtn)}
@@ -75,7 +75,7 @@ export function AvatarSettingsContent({
             }}
           >
             <span>&lt;</span> Back
-          </a>
+          </a> 
           <h5
             className={classNames("text-center")}
             style={{
@@ -92,7 +92,7 @@ export function AvatarSettingsContent({
           >
             Avatar Setup
           </h5>
-        </div>
+        </div> */}
         <div className="form-body">
           <TextInputField
             disabled={disableDisplayNameInput}

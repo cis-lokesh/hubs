@@ -1,17 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { BackButton } from "../input/BackButton";
+import { GoBack } from "../input/BackClose";
 import { AvatarSettingsContent } from "./AvatarSettingsContent";
 import { FormattedMessage } from "react-intl";
 import styles from "./AvatarSettingsContent.scss";
 import classNames from "classnames";
 import { AvatarModal } from "../avatarModal/AvatarModal";
 
-export function AvatarSetupModal({ className, /* onBack,*/ ...rest }) {
+export function AvatarSetupModal({ className, onBack, ...rest }) {
   return (
     <AvatarModal
       title={<FormattedMessage id="avatar-setup-sidebar.title" defaultMessage="Avatar Setup" />}
-      // beforeTitle={<BackButton onClick={onBack} />}
+      beforeTitle={<GoBack onClick={onBack} />}
       className={classNames(styles.avatarModal, className)}
     >
       <AvatarSettingsContent {...rest} />

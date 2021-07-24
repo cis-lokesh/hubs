@@ -4,7 +4,7 @@ import { Modal } from "../modal/Modal";
 import { Button } from "../input/Button";
 import { ReactComponent as VRIcon } from "../icons/VR.svg";
 import styles from "./EnterOnDeviceModal.scss";
-import { BackButton } from "../input/BackButton";
+import { GoBack } from "../input/BackClose";
 import { Column } from "../layout/Column";
 import { FormattedMessage, useIntl } from "react-intl";
 
@@ -24,7 +24,7 @@ export function EnterOnDeviceModal({
   return (
     <Modal
       title={<FormattedMessage id="enter-on-device-modal.title" defaultMessage="Enter on Device" />}
-      beforeTitle={<BackButton onClick={onBack} />}
+      beforeTitle={<GoBack onClick={onBack} />}
       className={className}
       {...rest}
       overrideStyles={styles}
@@ -37,7 +37,7 @@ export function EnterOnDeviceModal({
         ) : (
           <>
             <b>
-              <FormattedMessage id="enter-on-device-modal.heading" defaultMessage="Enter on Wireless Headset / Phone" />
+              <FormattedMessage id="enter-on-device-modal.heading" defaultMessage="Enter on Wireless Headset" />
             </b>
             <small>
               <FormattedMessage
@@ -87,7 +87,12 @@ export function EnterOnDeviceModal({
                     <small>
                       <FormattedMessage
                         id="enter-on-device-modal.unsupported-browser"
-                        defaultMessage="WebVR isn't supported in this browser, to enter with Oculus or SteamVR, use Firefox."
+                        defaultMessage="WebVR isn't supported in this browser,"
+                      />
+                      <br />
+                      <FormattedMessage
+                        id="enter-on-device-modal.unsupported-browser-2"
+                        defaultMessage="to enter with Oculus or SteamVR, use Firefox."
                       />
                     </small>
                     <Button
@@ -95,6 +100,17 @@ export function EnterOnDeviceModal({
                       preset="accent2"
                       href="https://www.mozilla.org/firefox/"
                       target="_blank"
+                      lg
+                      style={{
+                        minWidth: "unset",
+                        display: "flex",
+                        flexWrap: "nowrap",
+                        alignContent: "center",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        flexDirection: "row",
+                        width: "auto"
+                      }}
                       rel="noreferrer noopener"
                     >
                       <span>

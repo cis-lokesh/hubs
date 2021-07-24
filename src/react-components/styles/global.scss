@@ -26,6 +26,7 @@
   --text6-color: #{theme.$black};
   --text6-color-hover: var(--text6-color);
   --text6-color-pressed: var(--text6-color);
+  --text-small-color: #dbdbdb;
 
   --link-color: #{theme.$blue};
   --link-color-hover: #{theme.$blue-hover};
@@ -416,7 +417,8 @@ label, small, strong {
 }
 
 small {
-  color: theme.$text2-color;
+  color: var(--text-small-color);
+  font-weight: 300;
 }
 
 p, small, strong {

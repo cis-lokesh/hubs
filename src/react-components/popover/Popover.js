@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import { useCssBreakpoints } from "react-use-css-breakpoints";
 import classNames from "classnames";
 import { Close } from "../input/BackClose";
+import { CloseButton } from "../input/CloseButton";
 
 function PopoverArrow() {
   return (
@@ -136,7 +137,12 @@ export function Popover({
       {visible &&
         createPortal(
           <div className={classNames({ [styles.placeContainer]: place == "place" })}>
-            <Close onClick={closePopover} className={classNames({ [styles.placeClose]: place == "place" })} />
+            {place == "place" ? (
+              <Close onClick={closePopover} className={classNames({ [styles.placeClose]: place == "place" })} />
+            ) : (
+              <CloseButton onClick={closePopover} />
+            )}
+
             <div
               ref={setPopperElement}
               className={classNames(styles.popover, {
@@ -148,7 +154,9 @@ export function Popover({
             >
               {showTitle && (
                 <div className={styles.header}>
-                  <span onClick={closePopover} className={styles.closeBtn}>x</span>
+                  <span onClick={closePopover} className={styles.closeBtn}>
+                    x
+                  </span>
                   <p className={styles.headTitle}>{title}</p>
                 </div>
               )}
@@ -163,11 +171,12 @@ export function Popover({
                   Content
                 )}
               </div>
-              {!fullscreen && showArrow && (
-              <div ref={setArrowElement} className={styles.arrow} style={arrowStyles}>
-                <PopoverArrow />
-              </div>
-            )}
+              {!fullscreen &&
+                showArrow && (
+                  <div ref={setArrowElement} className={styles.arrow} style={arrowStyles}>
+                    <PopoverArrow />
+                  </div>
+                )}
             </div>
           </div>,
           document.body

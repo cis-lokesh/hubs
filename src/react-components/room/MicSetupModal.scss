@@ -218,15 +218,18 @@
 :local(.modal-header) {
   justify-content: space-between;
   width: 100%;
-  text-align: center;
+  text-align: left;
   max-width: 242px;
   margin: 0px auto;
   position: relative;
   right: 20px;
   font-size: 20px;
-  display: flex;
+ // display: flex;
   margin-bottom: 35px;
 
+  h3{
+    width: 100%;
+  }
   &:before {
     content: "";
     width: 346px;

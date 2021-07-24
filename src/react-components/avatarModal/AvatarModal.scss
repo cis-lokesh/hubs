@@ -27,19 +27,6 @@
   // }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 :local(.modal) {
   position: relative;
   display: flex;
@@ -88,23 +75,87 @@
   // border-bottom: 1px solid theme.$border1-color;
   // align-items: center;
   // justify-content: center;
-   width: 60%;
-  // margin-left: 78px;
-  // h5 {
-  //   margin-left: 40px;
+  //  width: 60%;
+  // // margin-left: 78px;
+  // // h5 {
+  // //   margin-left: 40px;
+  // // }
+  // text-align: center;
+  // max-width: 200px;
+  // margin: 0px auto;
+  // position: relative;
+  // right: 20px;
+  // font-size: 20px;
+   
+
+  // h3:before {content: "";width: 357px;position: absolute;height: 2px;background-color: white;bottom: -16px;left: -11px;right: 0;margin: 0 auto;}
+
+  // @media screen  and (min-width:theme.$breakpoint-sm){
+  //   h3{font-size: 18px;
+     
+  //     font-size: 18px;
+  //     margin-top: 20px;
+  //     position: relative;
+  //     margin-bottom: 25px;
+  //     margin-left: -40px;
+  //  }
   // }
-  text-align: center;
-  max-width: 200px;
+
+//   justify-content: space-between;
+//   width: 100%;
+//   text-align: left;
+//   max-width: 242px;
+//   margin: 0px auto;
+//   position: relative;
+//   right: 20px;
+//   font-size: 20px;
+//  // display: flex;
+//   margin-bottom: 35px;
+
+//   h3{
+//     width: 100%;
+//   }
+//   &:before {
+//     content: "";
+//     width: 346px;
+//     position: absolute;
+//     left: -52px;
+//     right: 0;
+//     margin: 0 auto;
+//     background-color: #f7f7f7;
+//     height: 1px;
+//     bottom: -18px;
+//   }
+  color: #fff;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  max-width: 242px;
   margin: 0px auto;
   position: relative;
   right: 20px;
   font-size: 20px;
-  @media screen  and (min-width:theme.$breakpoint-sm){
-    h5{font-size: 18px;
-      margin-top: 20px;
-   }
+ // display: flex;
+  margin-bottom: 35px;
+  min-width: 242px;
+
+  h3{
+    width: 100%;
+  }
+  &:before {
+    content: "";
+    width: 346px;
+    position: absolute;
+    left: -52px;
+    right: 0;
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    height: 1px;
+    bottom: -18px;
   }
 }
+
+
 
 :local(.leave){
   background: url("../../assets/images/LeaveRoom.png");
@@ -137,10 +188,23 @@
 }
 
 :local(.before-title) {
-  position: absolute;
-  left: 0;
-  // margin-left: 16px;
-  margin-left: 125px;
+  // // position: absolute;
+  // // left: 0;
+  // // margin-left: 16px;
+  // // margin-left: 125px;
+  // span {
+  //   font-weight: 300;
+  // }
+
+  // h3 {
+  //   color: #fff;
+  // }
+  align-items: stretch;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 1em;
+
   span {
     font-weight: 300;
   }

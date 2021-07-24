@@ -4,7 +4,7 @@ import { Modal } from "../modal/Modal";
 import { Button } from "../input/Button";
 import { ReactComponent as MicrophoneIcon } from "../icons/Microphone.svg";
 import styles from "./MicPermissionsModal.scss";
-import { BackButton } from "../input/BackButton";
+import { GoBack } from "../input/BackClose";
 import { Column } from "../layout/Column";
 import { FormattedMessage } from "react-intl";
 
@@ -12,7 +12,7 @@ export function MicPermissionsModal({ className, error, onClickErrorButton, erro
   return (
     <Modal
       title={<FormattedMessage id="mic-permissions-modal.title" defaultMessage="Enter on Device" />}
-      beforeTitle={<BackButton onClick={onBack} />}
+      beforeTitle={<GoBack onClick={onBack} />}
       className={className}
       {...rest}
       overrideStyles={styles}

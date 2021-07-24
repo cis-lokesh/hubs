@@ -49,21 +49,48 @@
   // border-bottom: 1px solid theme.$border1-color;
   // align-items: center;
   // justify-content: center;
-   width: 60%;
-  // margin-left: 78px;
-  // h5 {
-  //   margin-left: 40px;
+  //  width: 60%;
+  // // margin-left: 78px;
+  // // h5 {
+  // //   margin-left: 40px;
+  // // }
+  // text-align: center;
+  // max-width: 200px;
+  // margin: 0px auto;
+  // position: relative;
+  // right: 20px;
+  // font-size: 20px;
+  // @media screen  and (min-width:theme.$breakpoint-sm){
+  //   h5{font-size: 18px;
+  //     margin-top: 20px;
+  //     color: theme.$white;
+  //  }
   // }
-  text-align: center;
-  max-width: 200px;
+
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  max-width: 242px;
   margin: 0px auto;
   position: relative;
   right: 20px;
   font-size: 20px;
-  @media screen  and (min-width:theme.$breakpoint-sm){
-    h5{font-size: 18px;
-      margin-top: 20px;
-   }
+ // display: flex;
+  margin-bottom: 35px;
+
+  h3{
+    width: 100%;
+  }
+  &:before {
+    content: "";
+    width: 346px;
+    position: absolute;
+    left: -52px;
+    right: 0;
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    height: 1px;
+    bottom: -18px;
   }
 }
 
