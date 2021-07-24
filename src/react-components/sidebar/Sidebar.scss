@@ -11,6 +11,7 @@
   @media(min-width: theme.$breakpoint-lg) and (min-height: theme.$breakpoint-vr) {
     border-left: 1px solid theme.$background5-color;
   }
+  z-index: 10;
 }
 
 :local(.header) {
