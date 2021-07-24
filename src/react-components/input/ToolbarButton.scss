@@ -928,7 +928,7 @@
 
   &:local(.selected) {
     :local(.icon-container) {
-      border-color: theme.$accent-color;
+     
       background-color:theme.$accent-color-pressed;
 
       svg {
@@ -1149,7 +1149,7 @@
 
   &:local(.selected) {
     :local(.icon-container) {
-      background-color:purple;
+      background-color:theme.$accent-color-pressed;
 
       svg {
         *[stroke=\#000] {
@@ -1565,11 +1565,11 @@
     background-color: theme.$accent-color-hover;
     svg {
       *[stroke=\#000] {
-        stroke: theme.$accent-color;
+        stroke: theme.$white;
       }
   
       *[fill=\#000] {
-        fill: theme.$accent-color;
+        fill: theme.$white;
       }
     }
   }
@@ -1580,7 +1580,7 @@
 
   &:local(.selected) {
     :local(.icon-container) {
-      border-color: theme.$accent-color;
+     
       background-color:theme.$accent-color-pressed;
 
       svg {
@@ -1794,4 +1794,17 @@
   transform: translate(-50%, -50%);
   box-shadow: none;
   cursor: pointer;
+
+
+  @media only screen and (max-width:1050px){
+    bottom: auto;
+    top: 110px;
+    left: 22px;
+  }
+
+  @media only screen and (max-width: 1000px)
+  {
+    bottom: auto;
+    left: auto;
+  }
 }

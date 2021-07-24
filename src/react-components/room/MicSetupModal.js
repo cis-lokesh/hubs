@@ -8,7 +8,7 @@ import { ReactComponent as MicrophoneMutedIcon } from "../icons/MicrophoneMuted.
 import { ReactComponent as VolumeHighIcon } from "../icons/VolumeHigh.svg";
 import { ReactComponent as VolumeOffIcon } from "../icons/VolumeOff.svg";
 import styles from "./MicSetupModal.scss";
-import { BackButton } from "../input/BackButton";
+import { GoBack } from "../input/BackClose";
 import { SelectInputField } from "../input/SelectInputField";
 import { ToggleInput } from "../input/ToggleInput";
 import { ToolbarButton } from "../input/ToolbarButton";
@@ -36,7 +36,7 @@ export function MicSetupModal({
   return (
     <Modal
       title={<FormattedMessage id="mic-setup-modal.title" defaultMessage="Microphone Setup" />}
-      beforeTitle={<BackButton onClick={onBack} />}
+      beforeTitle={<GoBack onClick={onBack} />}
       className={classNames(styles.micModal, className)}
       {...rest}
       overrideStyles={styles}
@@ -64,11 +64,12 @@ export function MicSetupModal({
                 <FormattedMessage id="mic-setup-modal.mic-disabled" defaultMessage="Microphone Disabled" />
               )
             }
-            className={classNames(styles.largeToolbarButton, styles.micButton)}
+            className={classNames(styles.largeToolbarButton, styles.micButton, styles.toolbarBtn, styles.toolbarLabel)}
             iconContainerClassName={styles.micButtonContainer}
             onClick={onPromptMicrophone}
             disabled={microphoneEnabled}
             large
+            //overrideStyles={styles}
           >
             <div
               className={styles.micLevelIcon}
@@ -111,9 +112,10 @@ export function MicSetupModal({
             icon={soundPlaying ? <VolumeHighIcon width={48} height={48} /> : <VolumeOffIcon width={48} height={48} />}
             label={<FormattedMessage id="mic-setup-modal.test-audio" defaultMessage="Click to Test Audio" />}
             preset={soundPlaying ? "primary" : "basic"}
-            className={styles.largeToolbarButton}
+            className={(styles.largeToolbarButton, styles.toolbarBtn, styles.toolbarLabel)}
             onClick={onPlaySound}
             large
+            overrideStyles={styles}
           />
         </div>
         {microphoneEnabled && (

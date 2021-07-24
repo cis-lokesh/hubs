@@ -18,6 +18,7 @@ export function AvatarSettingsContent({
   displayNamePattern,
   onChangeAvatar,
   onBack,
+  avatarSetting,
   ...rest
 }) {
   // return (
@@ -51,9 +52,9 @@ export function AvatarSettingsContent({
     <Column as="form" className={styles.content} {...rest} style={{ padding: "0px 16px 5px 16px" }}>
       <div className={classNames(styles.themeForm, styles.avatarSetup)}>
         <div
-          className={classNames(styles.formHead, "d-flex", "align-items-center")}
+          className={classNames(styles.formHead, "d-flex", "align-items-center", { [styles.Head]: avatarSetting })}
           style={{
-            width: "320px",
+            width: "311px",
             borderBottom: "1px solid #fff",
             paddingBottom: "12px",
             position: "relative",
@@ -83,7 +84,10 @@ export function AvatarSettingsContent({
               lineHeight: "18px",
               textAlign: "center",
               letterSpacing: ".2px",
-              paddingLeft: "51px"
+              paddingLeft: "0",
+              marginLeft: "-32px",
+              display: "inline-block",
+              marginTop: "-2px"
             }}
           >
             Avatar Setup

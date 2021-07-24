@@ -404,7 +404,10 @@
   border-radius: 60px !important;
   font-size: 12px !important;
   border: theme.$transparent;
-  min-width: 100px !important;
+  
+  min-width: 111px !important;
+  padding: 5px;
+
   svg {
     *[stroke=\#000] {
       stroke: theme.$text5-color;

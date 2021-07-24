@@ -1524,6 +1524,7 @@ class UIRoot extends Component {
                           onClose={() => this.setSidebar(null)}
                           store={this.props.store}
                           mediaSearchStore={this.props.mediaSearchStore}
+                          avatarSetting={true}
                         />
                       )}
                       {this.state.sidebarId === "user" && (
@@ -1712,9 +1713,9 @@ class UIRoot extends Component {
                 }
                 toolbarAdmin={
                   <>
-                    {configs.isAdmin == "admin" &&
+                    {configs.isAdmin &&
                       entered && <SharePopoverContainer scene={this.props.scene} hubChannel={this.props.hubChannel} />}
-                    {configs.isAdmin == "admin" &&
+                    {configs.isAdmin &&
                       entered && (
                         <PlacePopoverContainer
                           scene={this.props.scene}
@@ -1723,11 +1724,13 @@ class UIRoot extends Component {
                           showNonHistoriedDialog={this.showNonHistoriedDialog}
                         />
                       )}
-                    {isModerator && <InvitePopoverContainer
-                      hub={this.props.hub}
-                      hubChannel={this.props.hubChannel}
-                      scene={this.props.scene}
-                    />}
+                    {isModerator && (
+                      <InvitePopoverContainer
+                        hub={this.props.hub}
+                        hubChannel={this.props.hubChannel}
+                        scene={this.props.scene}
+                      />
+                    )}
                   </>
                 }
               />

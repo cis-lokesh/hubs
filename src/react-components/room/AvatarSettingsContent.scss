@@ -251,3 +251,8 @@
       width: 185px;
   }
   
+:local(.avatar-setting){
+  :local(.form-head){
+    display:none;
+  }
+}

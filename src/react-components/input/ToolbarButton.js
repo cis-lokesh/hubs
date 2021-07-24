@@ -33,7 +33,19 @@ export const statusColors = ["recording", "unread", "enabled", "disabled"];
 
 export const ToolbarButton = forwardRef(
   (
-    { preset, className, iconContainerClassName, children, icon, label, selected, large, statusColor, ...rest },
+    {
+      preset,
+      className,
+      iconContainerClassName,
+      children,
+      icon,
+      label,
+      selected,
+      large,
+      statusColor,
+      // overrideStyles,
+      ...rest
+    },
     ref
   ) => {
     return (
@@ -41,6 +53,11 @@ export const ToolbarButton = forwardRef(
         ref={ref}
         className={classNames(
           styles.toolbarButton,
+
+          // {
+          //   ...styles.toolbarButton,
+          //   ...(overrideStyles.toolbarBtn ? overrideStyles.toolbarBtn : {})
+          // },
           styles[preset],
           { [styles.selected]: selected, [styles.large]: large },
           className
@@ -52,7 +69,7 @@ export const ToolbarButton = forwardRef(
           {statusColor && <div className={classNames(styles.statusIndicator, styles["status-" + statusColor])} />}
           {children}
         </div>
-        <label>{label}</label>
+        <label className={classNames(className ? className : {})}>{label}</label>
       </button>
     );
   }
@@ -67,9 +84,11 @@ ToolbarButton.propTypes = {
   large: PropTypes.bool,
   className: PropTypes.string,
   iconContainerClassName: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  overrideStyles: PropTypes.object
 };
 
 ToolbarButton.defaultProps = {
-  preset: "basic"
+  preset: "basic",
+  overrideStyles: {}
 };

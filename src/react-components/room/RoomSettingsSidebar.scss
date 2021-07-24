@@ -8,10 +8,7 @@
   }
 }
  
-:local(a){
-  color: theme.$custom2-color !important;
-  font-family: Sans Serif;
-}
+ 
 
 
 
@@ -22,7 +19,7 @@
     margin-top: 12px;
   }
   p{
-    margin-top: 15px;
+    margin-top: 0px;
   }
 
   &:last-child {

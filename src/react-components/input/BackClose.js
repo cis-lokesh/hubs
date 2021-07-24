@@ -1,13 +1,13 @@
 import React from "react";
-import "./BackClose.scss";
+import styles from "./BackClose.scss";
 import arrowIcon from "../../assets/images/arrow-icon.png";
 import closeIcon from "../../assets/images/close-icon.png";
 import classNames from "classnames";
 
-export const GoBack = ({ ...rest }) => {
+export const GoBack = ({ onClick, ...rest }) => {
   return (
     <>
-      <span className={classNames("btn-next", "circle-btn")} onClick={onClick} {...rest}>
+      <span className={classNames(styles.btnNext, styles.circleBtn)} onClick={onClick} {...rest}>
         <img src={arrowIcon} />
       </span>
     </>
@@ -16,7 +16,7 @@ export const GoBack = ({ ...rest }) => {
 export const Close = ({ className, onClick, ...rest }) => {
   return (
     <>
-      <span className={classNames("btn-close", "circle-btn", className)} onClick={onClick} {...rest}>
+      <span className={classNames(styles.btnClose, styles.circleBtn, className)} onClick={onClick} {...rest}>
         <img src={closeIcon} />
       </span>
     </>

@@ -19,7 +19,8 @@ export default class ProfileEntryPanel extends Component {
     avatarId: PropTypes.string,
     onClose: PropTypes.func,
     onBack: PropTypes.func,
-    showBackButton: PropTypes.bool
+    showBackButton: PropTypes.bool,
+    avatarSetting: PropTypes.bool
   };
 
   static defaultProps = {
@@ -140,7 +141,13 @@ export default class ProfileEntryPanel extends Component {
     };
 
     if (this.props.containerType === "sidebar") {
-      return <AvatarSettingsSidebar {...avatarSettingsProps} showBackButton={this.props.showBackButton} />;
+      return (
+        <AvatarSettingsSidebar
+          avatarSetting={true}
+          {...avatarSettingsProps}
+          showBackButton={this.props.showBackButton}
+        />
+      );
     }
 
     return <AvatarSetupModal {...avatarSettingsProps} />;
