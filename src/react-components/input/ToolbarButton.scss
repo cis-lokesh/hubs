@@ -1,0 +1,1810 @@
+@use '../styles/theme';
+
+
+.socila-link > li { display: inline-block; vertical-align: middle; margin-right: 10px; }
+.socila-link > li:last-child { margin-right: 0px; }
+.socila-link li > a { width: 18px; height: 18px; background: #fff; display: inline-block; font-size: 12px; text-align: center; padding: 2px; line-height: 14px; border-radius: 50%; color: #6c6e76; }
+.socila-link li > a:hover { background: #5D5FEF; border-color: #5D5FEF; color: #fff; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
+
+:local(.toolbar-button) {
+  border: none;
+  background-color: transparent;
+  
+  width: 45px;
+
+  label {
+    cursor: pointer;
+    color: theme.$text5-color;
+    margin-top: 8px;
+    margin-bottom: 3px;
+  }
+}
+
+:local(.icon-container) {
+  position: relative;
+  border-radius: 9999px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid theme.$transparent;
+  background-color: theme.$transparent;
+
+  transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out;
+
+  svg {
+    *[stroke=\#000] {
+      stroke: theme.$toolbar-icon-color;
+      transition: stroke 0.1s ease-in-out;
+    }
+
+    *[fill=\#000] {
+      fill: theme.$toolbar-icon-color;
+      transition: fill 0.1s ease-in-out;
+    }
+  }
+}
+
+:local(.large) :local(.icon-container) {
+  width: 96px;
+  height: 96px;
+}
+
+:local(.basic), :local(.transparent) {
+  :local(.icon-container) {
+    border-color: theme.$lightgrey;
+
+    svg {
+      *[stroke=\#000] {
+        stroke: theme.$basic-color;
+      }
+  
+      *[fill=\#000] {
+        fill: theme.$basic-color;
+      }
+    }
+  }  
+
+  &:hover :local(.icon-container) {
+    border-color: theme.$basic-color-hover;
+    background-color: theme.$basic-color-hover;
+    svg {
+      *[stroke=\#000] {
+        stroke: theme.$toolbar-basic-icon-color;
+      }
+      *[fill=\#000] {
+        fill: theme.$toolbar-basic-icon-color;
+      }
+    }
+  }
+
+  &:active :local(.icon-container) {
+    border-color: theme.$basic-color-pressed;
+    background-color: theme.$basic-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      border-color: transparent;
+      background-color: theme.$toolbar-basic-color;
+    }
+
+    label {
+      color: theme.$text4-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        background-color: theme.$toolbar-basic-color-hover;
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        background-color: theme.$toolbar-basic-color-pressed;
+      }
+    }
+  }
+}
+
+:local(.transparent) :local(.icon-container) {
+  border-color: theme.$transparent;
+}
+
+:local(.primary) {
+  :local(.icon-container) {
+    background-color: theme.$primary-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$primary-color-hover;
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$primary-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      border-color: theme.$primary-color;
+      background-color: transparent;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$primary-color;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$primary-color;
+        }
+      }
+    }
+
+    label {
+      color: theme.$primary-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$primary-color-hover;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$primary-color-hover;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$primary-color-hover;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$primary-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$primary-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$primary-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+:local(.accept) {
+  :local(.icon-container) {
+    background-color: theme.$accept-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$accept-color-hover;
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$accept-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      border-color: theme.$accept-color;
+      background-color: transparent;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$accept-color;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$accept-color;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accept-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$accept-color-hover;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accept-color-hover;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accept-color-hover;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$accept-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accept-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accept-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+:local(.cancel) {
+  :local(.icon-container) {
+    background-color: theme.$cancel-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$cancel-color-hover;
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$cancel-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      border-color: theme.$cancel-color;
+      background-color: transparent;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$cancel-color;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$cancel-color;
+        }
+      }
+    }
+
+    label {
+      color: theme.$cancel-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$cancel-color-hover;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$cancel-color-hover;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$cancel-color-hover;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$cancel-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$cancel-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$cancel-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+:local(.accent1) {
+
+
+  :local(.icon-container) {
+    background-color: theme.$accent1-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$accent1-color-hover;
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$accent1-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      border-color: theme.$accent1-color;
+      background-color: transparent;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$accent1-color;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$accent1-color;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accent1-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$accent1-color-hover;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent1-color-hover;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent1-color-hover;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$accent1-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent1-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent1-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+:local(.accent2) {
+  :local(.icon-container) {
+    background-color: theme.$accent2-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$accent2-color-hover;
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$accent2-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      border-color: theme.$accent2-color;
+      background-color: transparent;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$accent2-color;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$accent2-color;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accent2-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$accent2-color-hover;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent2-color-hover;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent2-color-hover;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$accent2-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent2-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent2-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+:local(.accent3) {
+  :local(.icon-container) {
+    background-color: theme.$accent3-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$accent3-color-hover;
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$accent3-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      border-color: theme.$accent3-color;
+      background-color: transparent;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$accent3-color;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$accent3-color;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accent3-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$accent3-color-hover;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent3-color-hover;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent3-color-hover;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$accent3-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent3-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent3-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+:local(.accent4) {
+  :local(.icon-container) {
+    background-color: theme.$accent4-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$accent4-color-hover;
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$accent4-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      border-color: theme.$accent4-color;
+      background-color: transparent ;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$accent4-color;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$accent4-color;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accent4-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$accent4-color-hover;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent4-color-hover;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent4-color-hover;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$accent4-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent4-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent4-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+:local(.accent5) {
+  :local(.icon-container) {
+    background-color: theme.$accent5-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$accent5-color-hover;
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$accent5-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      border-color: theme.$accent5-color;
+      background-color: transparent;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$accent5-color;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$accent5-color;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accent5-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$accent5-color-hover;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent5-color-hover;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent5-color-hover;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$accent5-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent5-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent5-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+:local(.status-indicator) {
+  position: absolute;
+  top: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
+}
+
+:local(.status-enabled) {
+  background-color: theme.$status-enabled-color;
+}
+
+:local(.status-disabled) {
+  background-color: theme.$status-disabled-color;
+}
+
+
+:local(.status-unread) {
+  background-color: theme.$status-unread-color;
+}
+
+:local(.status-recording) {
+  background-color: theme.$status-recording-color;
+}
+
+:local(.custom), :local(.transparent) {
+  :local(.icon-container) {
+    border-color: theme.$custom-color;
+    background-color: theme.$custom-color;
+    svg {
+      *[stroke=\#000] {
+        stroke: theme.$text5-color;
+      }
+      *[fill=\#000] {
+        fill: theme.$text5-color;
+      }
+    }
+  }
+
+  &:hover :local(.icon-container) {
+    border-color: theme.$custom-hover-color;
+    background-color: theme.$custom-hover-color;
+    svg {
+      *[stroke=\#000] {
+        stroke: theme.$text5-color;
+      }
+      *[fill=\#000] {
+        fill: theme.$text5-color;
+      }
+    }
+  }
+
+  &:active :local(.icon-container) {
+    border-color: theme.$custom-pressed-color;
+    background-color: theme.$custom-pressed-color;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      border-color: transparent;
+      background-color: theme.$custom-active-color;
+    }
+
+    label {
+      color: theme.$text5-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        background-color: theme.$custom-active-color;
+      }
+    }
+    &:active {
+      :local(.icon-container) {
+        background-color: theme.$custom-pressed-color;
+      }
+    }
+  }
+}
+
+
+:local(.custom1){
+  :local(.icon-container) {
+    border-color: theme.$custom1-color;
+    background-color: theme.$custom1-color;
+    svg {
+      *[stroke=\#000] {
+        stroke: theme.$text6-color;
+      }
+      *[fill=\#000] {
+        fill: theme.$text6-color;
+      }
+    }
+  }
+
+  &:hover :local(.icon-container) {
+    border-color: theme.$custom1-color-hover;
+    background-color: theme.$custom1-color-hover;
+    svg {
+      *[stroke=\#000] {
+        stroke: theme.$text5-color;
+      }
+      *[fill=\#000] {
+        fill: theme.$text5-color;
+      }
+    }
+  }
+
+  &:active :local(.icon-container) {
+    border-color: theme.$custom1-color-pressed;
+    background-color: theme.$custom1-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      border-color: transparent;
+      background-color: theme.$custom1-color-active;
+    }
+
+    label {
+      color: theme.$text5-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        background-color: theme.$custom1-color-active;
+      }
+    }
+    &:active {
+      :local(.icon-container) {
+        background-color: theme.$custom1-color-pressed;
+      }
+    }
+  }
+}
+
+
+
+:local(.accent) {
+  display: block;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  padding: 15px 30px;
+  text-align: center;
+  letter-spacing: -0.02em;
+  font-family: 'Sunflower', sans-serif;
+  border-radius: 80px 0px 80px 0px;
+  
+  :local(.icon-container) {
+    background-color: theme.$accent-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$accent-color-pressed;
+ 
+    svg {
+      *[stroke=\#000] {
+        stroke: theme.$accent-color-hover;
+      }
+  
+      *[fill=\#000] {
+        fill: theme.$accent4-color-hover;
+      }
+    }
+  }
+
+  &:active :local(.icon-container) {
+   
+    background-color: theme.$accent-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      border-color: theme.$accent-color-pressed;
+      background-color:theme.$accent-color-pressed;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$accent-color-hover;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$accent-color-hover;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accent-color-hover;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$transparent;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color-hover;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color-hover;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$accent-color-pressed;
+        background-color: theme.$accent-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+:local(.more) {
+ 
+  transform: rotate(-8deg) translate(8em) rotate(8deg);
+  -webkit-transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);
+  transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);  
+  position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // margin: -2.2em;
+  left: -61px;
+  top: 60px;
+
+  width: 45px;
+  height: 45px;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  transition: all .5s;
+  -webkit-transition: all .5s;
+
+  :local(.icon-container) {
+    background-color: theme.$accent-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$accent-color-hover;
+    svg {
+      *[stroke=\#000] {
+        stroke: theme.$accent-color;
+      }
+  
+      *[fill=\#000] {
+        fill: theme.$accent-color;
+      }
+    }
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$accent-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+     
+      background-color:theme.$accent-color-pressed;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$accent-color-hover;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$accent-color-hover;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accent-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$transparent;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$accent-color-pressed;
+        background-color: theme.$accent-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+:local(.setting) {
+
+  transform: rotate(40deg) translate(7.5em) rotate(-40deg);
+  -webkit-transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);
+  transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);
+  left: -37px;
+  top: 41px;
+  position: absolute;
+   
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  transition: all .5s;
+  -webkit-transition: all .5s;
+ 
+  :local(.icon-container) {
+    background-color: theme.$accent-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$accent-color-hover;
+    svg {
+      *[stroke=\#000] {
+        stroke:theme.$accent-color;
+      }
+  
+      *[fill=\#000] {
+        fill: theme.$accent-color;
+      }
+    }
+  }
+
+
+  &:active :local(.icon-container) {
+    background-color: theme.$accent-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      border-color: theme.$accent-color;
+      background-color:theme.$accent-color-pressed;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$accent-color-hover;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$accent-color-hover;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accent-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$transparent;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$accent-color-pressed;
+        background-color: theme.$accent-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+:local(.chat) {
+
+  transform: rotate(90deg) translate(8em) rotate(-90deg);
+  -webkit-transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);
+  transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);
+
+  position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // margin: -2.2em;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  transition: all .5s;
+  -webkit-transition: all .5s;
+  left: -19px;
+  top: 31px;
+  :local(.icon-container) {
+    background-color: #fff;
+    svg {
+      *[stroke=\#000] {
+        stroke: #111;
+      }
+  
+      *[fill=\#000] {
+        fill: #111;
+      }
+    }
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: #111;
+    svg {
+      *[stroke=\#000] {
+        stroke: #fff;
+      }
+  
+      *[fill=\#000] {
+        fill: #fff;
+      }
+    }
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$accent-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      background-color:theme.$accent-color-pressed;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: #fff;
+        }
+    
+        *[fill=\#000] {
+          fill: #fff;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accent-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$transparent;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: #fff;
+          }
+      
+          *[fill=\#000] {
+            fill: #fff;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$accent-color-pressed;
+        background-color: theme.$accent-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+:local(.user) {
+  
+  transform: rotate(142deg) translate(7.5em) rotate(-142deg);
+  -webkit-transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);
+  transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);
+
+  position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // margin: -2.2em;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  transition: all .5s;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  left: 0;
+  top: 44px;
+  :local(.icon-container) {
+    background-color: theme.$accent-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$accent-color-hover;
+    svg {
+      *[stroke=\#000] {
+        stroke: theme.$accent-color;
+      }
+  
+      *[fill=\#000] {
+        fill: theme.$accent-color;
+      }
+    }
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$accent-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+    
+      background-color:theme.$accent-color-pressed;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$accent-color-hover;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$accent-color-hover;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accent-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$transparent;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$accent-color-pressed;
+        background-color: theme.$accent-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+:local(.tele) {
+
+  transform: rotate(188deg) translate(8em) rotate(-188deg);
+  -webkit-transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);
+  transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);
+
+  position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // margin: -2.2em;
+  left: 14px;
+  top: 64px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  transition: all .5s;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+
+  :local(.icon-container) {
+    background-color: theme.$accent-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$accent-color-hover;
+    svg {
+      *[stroke=\#000] {
+        stroke: theme.$accent-color;
+      }
+  
+      *[fill=\#000] {
+        fill: theme.$accent-color;
+      }
+    }
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$accent-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+     
+      background-color:theme.$accent-color-pressed;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$accent-color-hover;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$accent-color-hover;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accent-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$transparent;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$accent-color-pressed;
+        background-color: theme.$accent-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+:local(.voice) {
+
+  transform: rotate(240deg) translate(6.5em) rotate(-240deg);
+  -webkit-transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);
+  transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);
+
+  position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // margin: -2.2em;
+  left: -16px;
+  top: 75px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  transition: all .5s;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+
+
+  :local(.icon-container) {
+    background-color: theme.$accent-color-pressed;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$accent-color-hover;
+    svg {
+      *[stroke=\#000] {
+        stroke: theme.$accent-color;
+      }
+  
+      *[fill=\#000] {
+        fill: theme.$accent-color;
+      }
+    }
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$accent-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) { 
+      background-color:theme.$accent-color-pressed;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$accent-color-hover;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$accent-color-hover;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accent-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$transparent;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$accent-color-pressed;
+        background-color: theme.$accent-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color-pressed;
+          }
+        }
+      }
+    }
+  }
+
+}
+:local(.react) {
+  transform: rotate(300deg) translate(6.5em) rotate(-300deg);
+  -webkit-transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);
+  transition: all 0.3s cubic-bezier(0.87, -0.3, 0.19, 1.44);
+
+  position: absolute;
+  // top: 50%;
+  // left: 50%;
+  // margin: -2.2em;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  transition: all .5s;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  left: -41px;
+  top: 70px;
+
+  :local(.icon-container) {
+    background-color: theme.$accent-color-pressed;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$accent-color-hover;
+    svg {
+      *[stroke=\#000] {
+        stroke: theme.$white;
+      }
+  
+      *[fill=\#000] {
+        fill: theme.$white;
+      }
+    }
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$accent-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+     
+      background-color:theme.$accent-color-pressed;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$accent-color-hover;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$accent-color-hover;
+        }
+      }
+    }
+
+    label {
+      color: theme.$accent-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$transparent;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        background-color: theme.$accent-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$accent-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$accent-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+:local(.custom3) {
+  margin-left: 10px;
+  :local(.icon-container) {
+    background-color: theme.$custom3-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$custom3-color-hover;
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$custom3-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      background-color: theme.$custom3-color-active;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$custom3-color-pressed;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$custom3-color-pressed;
+        }
+      }
+    }
+
+    label {
+      color: theme.$custom3-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$custom3-color-hover;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$white;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$white;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$custom3-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$custom3-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$custom3-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+ 
+
+:local(.custom4) {
+  margin-left: 10px;
+  :local(.icon-container) {
+    background-color: theme.$custom4-color;
+  }  
+
+  &:hover :local(.icon-container) {
+    background-color: theme.$custom4-color-hover;
+  }
+
+  &:active :local(.icon-container) {
+    background-color: theme.$custom4-color-pressed;
+  }
+
+  &:local(.selected) {
+    :local(.icon-container) {
+      background-color: theme.$custom4-color-active;
+
+      svg {
+        *[stroke=\#000] {
+          stroke: theme.$custom4-color-pressed;
+        }
+    
+        *[fill=\#000] {
+          fill: theme.$custom4-color-pressed;
+        }
+      }
+    }
+
+    label {
+      color: theme.$custom4-color;
+    }
+
+    &:hover {
+      :local(.icon-container) {
+        border-color: theme.$custom4-color-hover;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$white;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$white;
+          }
+        }
+      }
+    }
+  
+    &:active {
+      :local(.icon-container) {
+        border-color: theme.$custom4-color-pressed;
+
+        svg {
+          *[stroke=\#000] {
+            stroke: theme.$custom4-color-pressed;
+          }
+      
+          *[fill=\#000] {
+            fill: theme.$custom4-color-pressed;
+          }
+        }
+      }
+    }
+  }
+}
+ 
+
+
+
+
+
+
+// :local(.setting){
+//   position: relative;
+//   top:70% !important;
+// }
+
+:local(.toggle) {
+ 
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  position:absolute;
+  background: theme.$bg-gradient-color;
+  z-index: 9;
+  transform: translate(-50%, -50%);
+  box-shadow: none;
+  cursor: pointer;
+
+
+  @media only screen and (max-width:1050px){
+    bottom: auto;
+    top: 110px;
+    left: 22px;
+  }
+
+  @media only screen and (max-width: 1000px)
+  {
+    bottom: auto;
+    left: auto;
+  }
+}

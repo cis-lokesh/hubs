@@ -1,0 +1,33 @@
+@use "../styles/theme.scss";
+
+:local(.room-setting){
+  font-family: Sans Serif;
+  &:h5{
+    font-size: 18px;
+    font-weight: 800;
+  }
+}
+ 
+ 
+
+
+
+:local(.room-permissions), :local(.permissions-group) {
+  margin-left: 20px;
+
+  & > * {
+    margin-top: 12px;
+  }
+  p{
+    margin-top: 0px;
+  }
+
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+
+:local(.confirm-revoke-button) {
+  display: inline;
+  color: theme.$link-color;
+}

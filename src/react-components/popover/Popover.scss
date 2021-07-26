@@ -1,0 +1,230 @@
+@use "../styles/theme";
+
+:local(.popover) {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  color: theme.$text5-color;
+  background-color: theme.$background1-color;
+  border: 1px solid theme.$background1-color;
+  min-width: 160px;
+  
+  z-index: 99999999 !important;
+   
+  max-height: calc(100vh - 40vh);
+
+  :local(.content) {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  &[data-popper-placement^=bottom] {
+    :local(.content) {
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    :local(.arrow) {
+      margin-top: -9px;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &[data-popper-placement^=top] {
+    :local(.content) {
+      padding-bottom: 8px;
+    }
+
+    :local(.arrow) {
+      bottom: -9px;
+    }
+  }
+
+  &[data-popper-placement^=right] {
+    :local(.content) {
+      padding-left: 8px;
+    }
+
+    :local(.arrow) {
+      left: -16px;
+
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &[data-popper-placement^=left] {
+    :local(.content) {
+      padding-right: 8px;
+    }
+
+    :local(.arrow) {
+      right: -16px;
+
+      svg {
+        transform: rotate(270deg);
+      }
+    }
+  }
+}
+
+:local(.header) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 8px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  border-bottom: 1px solid #ffffff54;
+  h5 {
+    display: flex
+  }
+
+  button {
+    position: absolute;
+    left: 8px;
+    border: none;
+    background-color: transparent;
+
+    &:hover * {
+      stroke: theme.$link-color-hover;
+    }
+
+    &:active * {
+      stroke: theme.$link-color-pressed;
+    }
+  }
+}
+
+:local(.arrow) {
+  position: absolute;
+}
+
+:local(.arrow-bg) {
+  fill: theme.$background1-color;
+  stroke: theme.$background1-color;
+}
+
+:local(.arrow-border) {
+  // stroke: theme.$border1-color;
+  fill: theme.$background1-color;
+}
+
+:local(.fullscreen) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-width: 0;
+  border-radius: 0;
+  z-index: 10;
+  max-height: none;
+
+  :local(.header) {
+    border-bottom: 1px solid theme.$border1-color;
+
+    button {
+      left: 16px;
+    }
+  }
+
+  :local(.content) {
+    padding: 0;
+    overflow-y: auto;
+  }
+}
+
+:local(.fullscreen-body) {
+  overflow: hidden;
+}
+
+
+:local(.placepopover){
+  
+    background: url(../../assets/images/PlaceBg.png);
+    margin: 0px auto;
+    width: auto;
+    background-repeat: no-repeat;
+    min-height: 100px;
+    max-height: 400px;
+    min-width: 450px;
+    background-repeat: no-repeat;
+    background-size: 100% 80%;
+    padding: 20px;
+    border:none;
+
+    transform: inherit !important;
+    right: 48px !important;
+    /* max-width: 449px !important; */
+    left: auto !important;
+    bottom: 71px !important;
+
+    @media only screen and (max-width:1050px){
+      right: 25px !important;
+    }
+   
+
+}
+
+
+:local(.place-content){
+  overflow-y: auto;
+  margin-top: -10px;
+  //margin-left: 10px; 
+ 
+}
+
+:local(.place-close){
+  
+  // right: 3% !important;
+  // top: 72% !important;
+  right: 70px !important;
+  top: auto !important;
+  bottom: 180px !important;
+
+  @media only screen and (max-width:1050px){
+    right: 31px !important;
+    top: auto !important;
+    bottom: 180px !important;
+  }
+  
+
+
+}
+
+:local(.close-btn) {
+  padding: 1em;
+  position: absolute;
+  left: 0;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+:local(.head-title) {
+  font-size: 18px;
+  margin: 0;
+}
+
+:local(.place-container){
+  right: 0;
+  position: relative;
+  height: 100%;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+@use "../styles/theme.scss";
+
+:local(.person) {
+  font-size: theme.$font-size-sm;
+
+  & > * {
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  *[stroke=\#000] {
+    stroke: theme.$text5-color;
+  }
+
+  *[fill=\#000] {
+    fill: theme.$text5-color;
+  }
+}
+
+:local(.moderator-icon) {
+  *[stroke=\#000] {
+    stroke: theme.$admin-color;
+  }
+
+  *[fill=\#000] {
+    fill: theme.$admin-color;
+  }
+}
+
+:local(.presence) {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  margin: 0;
+  span {
+    background-color: theme.$text5-color;
+    border-radius: 50px;
+    margin-right: 10px;
+  }
+}
+
+:local(.people-list) {
+  background: url("../../assets/images/inactivePeople.png");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  max-width: 128px;
+  max-height: 50px;
+  color: theme.$text5-color;
+  border-color: transparent;
+  span {
+    font-family: Helvetica;
+    font-size: 12px;
+  }
+}
+:local(.active) {
+  background: url("../../assets/images/activePeople.png");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+:local(.disable) {
+  border-color: transparent;
+  cursor: not-allowed !important;
+  opacity: 0.7;
+  
+}
+
+:local(.user-name) {
+  margin: 0;
+}
