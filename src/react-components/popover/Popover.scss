@@ -21,6 +21,7 @@
   &[data-popper-placement^=bottom] {
     :local(.content) {
       padding-top: 8px;
+      
     }
 
     :local(.arrow) {
@@ -35,6 +36,7 @@
   &[data-popper-placement^=top] {
     :local(.content) {
       padding-bottom: 8px;
+      padding-top: 20px;
     }
 
     :local(.arrow) {
@@ -174,7 +176,7 @@
 
 :local(.place-content){
   overflow-y: auto;
-  margin-top: -10px;
+  margin-top: -27px;
   //margin-left: 10px; 
  
 }

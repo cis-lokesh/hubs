@@ -18,6 +18,8 @@ $input-height: 40px;
   width: 100%;
   max-width: 300px;
   padding: 0 8px;
+  font-size: 12px;
+  font-family: sans-serif;
 
   span {
     overflow: hidden;
@@ -63,6 +65,8 @@ $input-height: 40px;
   box-shadow: -1px -1px 1px theme.$dropdown-border-color, 3px 3px 6px theme.$dropdown-shadow-color;
   max-height: 320px;
   overflow-y: auto;
+  font-size: 12px;
+  font-family: sans-serif;
 }
 
 :local(.open) {

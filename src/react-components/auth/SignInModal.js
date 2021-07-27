@@ -1,12 +1,13 @@
 import React, { useCallback, useState } from "react";
 import PropTypes from "prop-types";
-import { CloseButton } from "../input/CloseButton";
+import { GoBack } from "../input/BackClose";
 import { Modal } from "../modal/Modal";
 import { FormattedMessage, useIntl, defineMessages } from "react-intl";
 import { CancelButton, NextButton, ContinueButton } from "../input/Button";
 import { TextInputField } from "../input/TextInputField";
 import { Column } from "../layout/Column";
 import { LegalMessage } from "./LegalMessage";
+import styles from "./SignInModal.scss";
 
 export const SignInStep = {
   submit: "submit",
@@ -99,7 +100,7 @@ export function SubmitEmail({ onSubmitEmail, initialEmail, privacyUrl, termsUrl,
 
   return (
     <Column center padding margin as="form" onSubmit={onSubmitForm}>
-      <p>
+      <p className={styles.label}>
         {message ? (
           intl.formatMessage(message)
         ) : (
@@ -174,7 +175,7 @@ export function SignInComplete({ message, onContinue }) {
   const intl = useIntl();
 
   return (
-    <Column center padding margin>
+    <Column center padding overrideStyles={styles}>
       <p>
         <b>
           {message ? (
@@ -198,7 +199,8 @@ export function SignInModal({ closeable, onClose, children, ...rest }) {
   return (
     <Modal
       title={<FormattedMessage id="sign-in-modal.title" defaultMessage="Sign In" />}
-      beforeTitle={closeable && <CloseButton onClick={onClose} />}
+      beforeTitle={closeable && <GoBack onClick={onClose} />}
+      overrideStyles={styles}
       {...rest}
     >
       {children}

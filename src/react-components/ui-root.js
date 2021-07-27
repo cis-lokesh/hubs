@@ -799,7 +799,7 @@ class UIRoot extends Component {
   };
 
   renderEntryStartPanel = () => {
-    const { hasAcceptedProfile, hasChangedName } = this.props.store.state.activity;
+    const { hasAcceptedProfile = false, hasChangedName = false } = this.props.store.state.activity;
     const promptForNameAndAvatarBeforeEntry = this.props.hubIsBound ? !hasAcceptedProfile : !hasChangedName;
 
     // TODO: What does onEnteringCanceled do?
@@ -1091,27 +1091,27 @@ class UIRoot extends Component {
                 store={this.props.store}
                 mediaSearchStore={this.props.mediaSearchStore}
                 avatarId={props.location.state.detail && props.location.state.detail.avatarId}
-                mediaBrowser={
-                  <StrippedMediaBrowser
-                    history={this.props.history}
-                    mediaSearchStore={this.props.mediaSearchStore}
-                    hubChannel={this.props.hubChannel}
-                    onMediaSearchResultEntrySelected={(entry, selectAction) => {
-                      if (entry.type === "room") {
-                        this.showNonHistoriedDialog(LeaveRoomModal, {
-                          destinationUrl: entry.url,
-                          reason: LeaveReason.joinRoom
-                        });
-                      } else {
-                        this.props.onMediaSearchResultEntrySelected(entry, selectAction);
-                      }
-                    }}
-                    performConditionalSignIn={this.props.performConditionalSignIn}
-                    showNonHistoriedDialog={this.showNonHistoriedDialog}
-                    store={this.props.store}
-                    scene={this.props.scene}
-                  />
-                }
+                //   mediaBrowser={
+                //     <StrippedMediaBrowser
+                //       history={this.props.history}
+                //       mediaSearchStore={this.props.mediaSearchStore}
+                //       hubChannel={this.props.hubChannel}
+                //       onMediaSearchResultEntrySelected={(entry, selectAction) => {
+                //         if (entry.type === "room") {
+                //           this.showNonHistoriedDialog(LeaveRoomModal, {
+                //             destinationUrl: entry.url,
+                //             reason: LeaveReason.joinRoom
+                //           });
+                //         } else {
+                //           this.props.onMediaSearchResultEntrySelected(entry, selectAction);
+                //         }
+                //       }}
+                //       performConditionalSignIn={this.props.performConditionalSignIn}
+                //       showNonHistoriedDialog={this.showNonHistoriedDialog}
+                //       store={this.props.store}
+                //       scene={this.props.scene}
+                //     />
+                //   }
               />
             )}
           />
@@ -1344,7 +1344,7 @@ class UIRoot extends Component {
       }
     ];
 
-    console.log(configs.isAdmin());
+    //console.log(configs.isAdmin());
 
     return (
       <MoreMenuContextProvider>
@@ -1596,26 +1596,6 @@ class UIRoot extends Component {
                       }}
                     />
 
-                    {watching && (
-                      <>
-                        <ToolbarButton
-                          icon={<EnterIcon />}
-                          label={<FormattedMessage id="toolbar.join-room-button" defaultMessage="Join Room" />}
-                          preset="custom"
-                          onClick={() => this.setState({ watching: false })}
-                        />
-                        {enableSpectateVRButton && (
-                          <ToolbarButton
-                            icon={<VRIcon />}
-                            preset="custom"
-                            label={
-                              <FormattedMessage id="toolbar.spectate-in-vr-button" defaultMessage="Spectate in VR" />
-                            }
-                            onClick={() => this.props.scene.enterVR()}
-                          />
-                        )}
-                      </>
-                    )}
                     {this.state.showSocial && (
                       <ChatToolbarButtonContainer
                         selected={this.state.sidebarId === "chat"}
@@ -1659,13 +1639,13 @@ class UIRoot extends Component {
                             onClick={() => this.setState({ openSetting: !this.openSetting })}
                           />
 
-                          <ParticipantContainer icon={<PeopleIcon />} />
+                          <ParticipantContainer icon={<PeopleIcon />} onClick={() => this.toggleSidebar("people")} />
 
                           <MoreMenuPopoverButton menu={moreMenu} />
                         </>
                       )}
 
-                    {entered &&
+                    {/* {entered &&
                       isMobileVR && (
                         <ToolbarButton
                           className={styleUtils.hideLg}
@@ -1674,20 +1654,11 @@ class UIRoot extends Component {
                           label={<FormattedMessage id="toolbar.enter-vr-button" defaultMessage="Enter VR" />}
                           onClick={() => exit2DInterstitialAndEnterVR(true)}
                         />
-                      )}
+                      )} */}
                   </>
                 }
                 toolbarRight={
                   <>
-                    {entered &&
-                      isMobileVR && (
-                        <ToolbarButton
-                          icon={<VRIcon />}
-                          preset="accept"
-                          label={<FormattedMessage id="toolbar.enter-vr-button" defaultMessage="Enter VR" />}
-                          onClick={() => exit2DInterstitialAndEnterVR(true)}
-                        />
-                      )}
                     {/* {entered && (
                      <ToolbarButton
                         icon={<LeaveIcon />}
@@ -1715,6 +1686,15 @@ class UIRoot extends Component {
                 }
                 toolbarAdmin={
                   <>
+                    {entered &&
+                      isMobileVR && (
+                        <ToolbarButton
+                          icon={<VRIcon />}
+                          preset="custom3"
+                          // label={<FormattedMessage id="toolbar.enter-vr-button" defaultMessage="Enter VR" />}
+                          onClick={() => exit2DInterstitialAndEnterVR(true)}
+                        />
+                      )}
                     {entered && <SharePopoverContainer scene={this.props.scene} hubChannel={this.props.hubChannel} />}
                     {entered && (
                       <PlacePopoverContainer
@@ -1723,6 +1703,26 @@ class UIRoot extends Component {
                         mediaSearchStore={this.props.mediaSearchStore}
                         showNonHistoriedDialog={this.showNonHistoriedDialog}
                       />
+                    )}
+                    {watching && (
+                      <>
+                        <ToolbarButton
+                          icon={<EnterIcon />}
+                          //  label={<FormattedMessage id="toolbar.join-room-button" defaultMessage="Join Room" />}
+                          preset="custom3"
+                          onClick={() => this.setState({ watching: false })}
+                        />
+                        {enableSpectateVRButton && (
+                          <ToolbarButton
+                            icon={<VRIcon />}
+                            preset="custom3"
+                            //   label={
+                            //     <FormattedMessage id="toolbar.spectate-in-vr-button" defaultMessage="Spectate in VR" />
+                            //   }
+                            onClick={() => this.props.scene.enterVR()}
+                          />
+                        )}
+                      </>
                     )}
                     {isModerator && (
                       <InvitePopoverContainer

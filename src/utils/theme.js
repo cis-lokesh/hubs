@@ -36,12 +36,11 @@ function activateTheme() {
     // NOTE, using the object-based {} setAttribute variant in a-frame
     // seems to not work in Firefox here -- the entities with the mixins are not
     // updated.
-    document
-      .querySelector("#rounded-text-button")
-      .setAttribute(
-        "text-button",
-        `textHoverColor: ${actionHoverColor}; textColor: ${actionColor}; backgroundColor: #fff; backgroundHoverColor: #aaa;`
-      );
+    document.querySelector("#rounded-text-button").setAttribute(
+      "text-button",
+      `textHoverColor: ${actionHoverColor}; textColor: ${actionColor}; backgroundColor: #5D5FEF ; backgroundHoverColor: #5D5FEF;`
+      // `textHoverColor: ${actionHoverColor}; textColor: ${actionColor}; backgroundColor: #fff; backgroundHoverColor: #aaa;`
+    );
 
     document
       .querySelector("#rounded-button")

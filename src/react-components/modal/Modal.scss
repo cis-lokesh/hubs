@@ -35,12 +35,12 @@
     padding: 25px 20px 20px;
   }
 
-  @media screen and (min-width: theme.$breakpoint-lg){
-    min-width: 550px;
-    min-height: 335px;
-    max-width: 395px;
-    padding: 40px 20px 20px;
-  }
+  // @media screen and (min-width: theme.$breakpoint-lg){
+  //   min-width: 500px;
+  //   min-height: 335px;
+  //   max-width: 395px;
+  //   padding: 40px 20px 20px;
+  // }
 }
 
 :local(.header) {

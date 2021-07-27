@@ -31,3 +31,8 @@
   display: inline;
   color: theme.$link-color;
 }
+
+:local(.radio-btn){
+  width:20px;
+  height: 20px;
+}

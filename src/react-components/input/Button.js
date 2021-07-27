@@ -15,6 +15,7 @@ export const presets = [
   "cancel",
   "custom1",
   "custom2",
+  "custom3",
   "accent",
   "accent1",
   "accent2",
@@ -62,7 +63,7 @@ Button.defaultProps = {
 
 export function NextButton(props) {
   return (
-    <Button preset="accent5" {...props}>
+    <Button preset="custom3" {...props}>
       <FormattedMessage id="button.next" defaultMessage="Next" />
     </Button>
   );
@@ -70,7 +71,7 @@ export function NextButton(props) {
 
 export function CancelButton(props) {
   return (
-    <Button preset="cancel" {...props}>
+    <Button preset="custom3" {...props}>
       <FormattedMessage id="button.cancel" defaultMessage="Cancel" />
     </Button>
   );
@@ -78,7 +79,7 @@ export function CancelButton(props) {
 
 export function ContinueButton(props) {
   return (
-    <Button preset="accent5" {...props}>
+    <Button preset="custom3" {...props}>
       <FormattedMessage id="button.continue" defaultMessage="Continue" />
     </Button>
   );
