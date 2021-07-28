@@ -1704,6 +1704,7 @@
 
 :local(.custom4) {
   margin-left: 10px;
+  width: unset;
   :local(.icon-container) {
     background-color: theme.$custom4-color;
   }  

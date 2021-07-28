@@ -11,13 +11,7 @@ import { MiscSetting } from "./MiscSettings/MiscSetting";
 import { MovementSetting } from "./MovementSettings";
 
 export const SettingContainer = ({ icon, onClick }) => {
-  return (
-    <ToolbarButton
-      icon={icon}
-      preset="setting"
-      //onClick={onClick}
-    />
-  );
+  return <ToolbarButton icon={icon} preset="setting" onClick={onClick} />;
 };
 
 export function Setting(props) {

@@ -31,12 +31,12 @@ export function EnterOnDeviceModal({
     >
       <Column center={loadingCode ? "both" : true} alignleft padding grow>
         {loadingCode ? (
-          <b>
+          <b style={{ "font-size": "12px" }}>
             <FormattedMessage id="enter-on-device-modal.generating-code" defaultMessage="Generating join code..." />
           </b>
         ) : (
           <>
-            <b>
+            <b style={{ "font-size": "12px" }}>
               <FormattedMessage id="enter-on-device-modal.heading" defaultMessage="Enter on Wireless Headset" />
             </b>
             <small>

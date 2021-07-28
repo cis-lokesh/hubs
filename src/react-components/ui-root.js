@@ -29,6 +29,8 @@ import MediaBrowserContainer from "./media-browser";
 import EntryStartPanel from "./entry-start-panel.js";
 import AvatarEditor from "./avatar-editor";
 import PreferencesScreen from "./preferences-screen.js";
+//import Setting from "./room/Settings/preferencesSettingScreen";
+
 import EventsScreen from "./event-screen.js";
 import WorldsScreen from "./worlds-screen.js";
 import PresenceLog from "./presence-log.js";
@@ -103,7 +105,8 @@ import { SpectatingLabel } from "./room/SpectatingLabel";
 import { SignInMessages } from "./auth/SignInModal";
 import { TeledildonicsPopoverContainer } from "./room/TeledildonicsPopoverContainer";
 import { CanvasMenu } from "./room/CanvasMenu";
-import { SettingContainer, Setting } from "./room/Settings";
+import { SettingContainer /*,Setting*/ } from "./room/Settings";
+import Setting from "./room/Settings/preferencesSettingScreen";
 import { MiscSetting } from "./room/MiscSetting";
 import { ParticipantContainer } from "./room/ParticipantContainer";
 import StrippedMediaBrowser from "./room/Profile/StrippedMediaBrowser";
@@ -1449,8 +1452,14 @@ class UIRoot extends Component {
                         }}
                       />
                     )}
-                    {this.state.openSetting && <Setting {...this.props} />}
-
+                    {this.state.openSetting && (
+                      <Setting
+                        onClose={() => {
+                          this.setState({ openSetting: !this.state.openSetting });
+                        }}
+                        {...this.props}
+                      />
+                    )}
                     {this.state.sidebarId !== "chat" &&
                       this.props.hub && (
                         <PresenceLog
@@ -1636,7 +1645,10 @@ class UIRoot extends Component {
                        */}
                           <SettingContainer
                             icon={<Settingicon />}
-                            onClick={() => this.setState({ openSetting: !this.openSetting })}
+                            onClick={() => {
+                              console.log("calling");
+                              this.setState({ openSetting: !this.openSetting });
+                            }}
                           />
 
                           <ParticipantContainer icon={<PeopleIcon />} onClick={() => this.toggleSidebar("people")} />

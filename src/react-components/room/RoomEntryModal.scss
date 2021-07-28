@@ -1,7 +1,7 @@
 @use "../styles/theme.scss";
 
 :local(.content) {
-  margin-top: 10px;
+//  margin-top: 10px;
   padding-left: 20px;
   //padding: 0px 0px 24px 0px;
   button {
@@ -15,10 +15,10 @@
 
 :local(.logo-container) {
   padding: 0 16px;
-  margin-top: 32px;
-  margin-bottom: 30px;
-  margin-right: 50px;
-  margin-left: 20px;
+  // margin-top: 32px;
+  // margin-bottom: 30px;
+  // margin-right: 50px;
+  // margin-left: 20px;
 
   @media screen and (max-width: theme.$breakpoint-sm){
     width:100px;

@@ -28,7 +28,7 @@
 }
 
 :local(.message-group-label) {
-  color: theme.$text2-color;
+//  color: theme.$text2-color;
   font-size: theme.$font-size-xs;
   display: flex;
   margin: 2px;
@@ -49,6 +49,7 @@
   font-size: theme.$font-size-md;
   overflow-wrap: break-word;
   line-height: 1.25;
+  color:#535050;
 
   img, video {
     max-height: 240px;
@@ -100,7 +101,7 @@
 
   i {
     font-size: theme.$font-size-xs;
-    color: theme.$text2-color;
+   // color: theme.$text2-color;
   }
 
   span {
