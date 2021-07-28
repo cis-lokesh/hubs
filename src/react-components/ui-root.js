@@ -1202,7 +1202,8 @@ class UIRoot extends Component {
             id: "preferences",
             label: "Preferences",
             icon: SettingsIcon,
-            onClick: () => this.setState({ showPrefs: true })
+            onClick: () => this.setState({ openSetting: !this.openSetting })
+            // onClick: () => this.setState({ showPrefs: true })
           },
           {
             id: "worlds",
@@ -1433,10 +1434,10 @@ class UIRoot extends Component {
                             onClick={() => this.toggleSidebar("objects")}
                           />
                         )}
-                        <PeopleMenuButton
+                        {/* <PeopleMenuButton
                           active={this.state.sidebarId === "people"}
                           onClick={() => this.toggleSidebar("people")}
-                        />
+                        /> */}
                       </ContentMenu>
                     )}
                     {!entered && !streaming && !isMobile && streamerName && <SpectatingLabel name={streamerName} />}

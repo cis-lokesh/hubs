@@ -97,6 +97,7 @@ $input-height: 40px;
   background-color: transparent;
   padding-left: 8px;
   line-height: calc(#{$input-height} - 2px);
+  font-size: 14px;
 
   &:focus {
     box-shadow: none;

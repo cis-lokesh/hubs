@@ -39,7 +39,7 @@
 
 .seeting-audio .form-head li {padding: 0 5px;}
 .seeting-audio .form-head li h5 {font-family: 'Sunflower', sans-serif;font-weight: bold;font-size: 12px;line-height: 15px;color: #A0A0A0;letter-spacing: -0.02em;}
-.seeting-audio .form-head > h6 {font-size: 12px;color: #fff;margin-bottom: 6px;font-family: 'Alata', sans-serif;}
+.seeting-audio .form-head > h6 {font-size: 12px;color: #fff; text-align: center; margin-bottom: 6px;font-family: sans-serif;}
 .seeting-audio .form-head li.active h5 {color: #fff;}
 .seeting-audio .form-body .velume h2.text-box-right {padding-left: 28px !important;display: inline-block;}
 .seeting-audio .form-body .velume #Teleport h2 {min-width: 100%;}
@@ -249,7 +249,7 @@ select.wrap-drop option {
 .misc-top-page .form-head {width: 180px;margin: 0 auto;}
 .misc-top-page .form-head > h6 {font-size: 18px;}
 .misc-com {margin-bottom: 7px;}
-.seeting-audio .form-body ul.nav.nav-tabs.misc-tabs a {font-size: 10px;font-family: Roboto;font-style: normal;font-weight: bold;font-size: 10px;line-height: 17px;color: rgba(44, 47, 58, 0.7);background: rgba(196, 196, 196, 0.7);height: 26px;}
+.seeting-audio .form-body ul.nav.nav-tabs.misc-tabs a {font-size: 10px; font-style: normal;font-weight: bold;font-size: 10px;line-height: 17px;color: rgba(44, 47, 58, 0.7);background: rgba(196, 196, 196, 0.7);height: 26px;}
 .valume-misc .wrap-drop {height: 20px;padding: 3px 5px;}
 .valume-misc .wrap-drop:after {top: 9px;}
 /* .velume.valume-misc {/* max-width: 113px; *//* margin: 0 auto; } */

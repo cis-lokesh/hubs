@@ -232,14 +232,14 @@
   }
   &:before {
     content: "";
-    width: 346px;
+    width: 355px; //346px
     position: absolute;
-    left: -52px;
+    left: -55px;   //-63px
     right: 0;
     margin: 0 auto;
     background-color: #f7f7f7;
     height: 1px;
-    bottom: -18px;
+    bottom: -19px;  //-18px
   }
 }
  

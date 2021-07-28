@@ -36,7 +36,7 @@ function registerNetworkSchemas() {
         requiresNetworkUpdate: vectorRequiresUpdate(0.5)
       },
       {
-        component: "scale",
+        componen: "scale",
         requiresNetworkUpdate: vectorRequiresUpdate(0.001)
       },
       "player-info",

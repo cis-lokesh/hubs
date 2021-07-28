@@ -3,8 +3,8 @@
 
 :local(.circle-btn){
     
-    width: 11px; 
-    height: 11px; 
+    width: 16px; 
+    height: 16px; 
     display: inline-block; 
     position: absolute; 
     border-radius: 50px; 
@@ -19,6 +19,9 @@
  
     &:hover { 
         background: rgba(56, 58, 68, 0.8); 
+    }
+    img{
+        margin:2px;
     }
 }
 
