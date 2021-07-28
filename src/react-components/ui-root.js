@@ -818,12 +818,12 @@ class UIRoot extends Component {
               this.setState({ entering: true });
               this.props.hubChannel.sendEnteringEvent();
 
-              if (promptForNameAndAvatarBeforeEntry) {
-                this.pushHistoryState("entry_step", "profile");
-              } else {
-                this.onRequestMicPermission();
-                this.pushHistoryState("entry_step", "mic_grant");
-              }
+              // if (promptForNameAndAvatarBeforeEntry) {
+              this.pushHistoryState("entry_step", "profile");
+              // } else {
+              //   this.onRequestMicPermission();
+              //   this.pushHistoryState("entry_step", "mic_grant");
+              // }
             } else {
               this.handleForceEntry();
             }
