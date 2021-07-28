@@ -122,7 +122,8 @@ export function SharePopoverContainer({ scene, hubChannel }) {
   } = useShare(scene, hubChannel);
 
   const items = [
-    canShareCamera && {
+    // canShareCamera &&
+    {
       id: "camera",
       icon: VideoIcon,
       color: "accent5",

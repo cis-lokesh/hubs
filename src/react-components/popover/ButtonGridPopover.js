@@ -28,6 +28,7 @@ export function ButtonGridPopover({ fullscreen, items, closePopover, place }) {
             }}
             label={item.label}
             selected={item.selected}
+            className={classNames({ [styles.shareBtn]: place == "share" })}
           />
         );
       })}

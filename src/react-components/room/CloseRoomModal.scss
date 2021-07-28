@@ -1,0 +1,85 @@
+@use "../styles/theme.scss";
+
+:local(.modal) {
+    position: relative;
+    background: url("../../assets/images/modal-image.png");
+     color: theme.$text5-color;
+    min-width: 395px;
+    margin: 0px auto;
+    padding: 50px 100px 20px;
+    min-height: 415px;
+    width: auto;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    max-width: 500px; //500px;        
+  
+    @media screen and (min-width: 992px) {
+      .Modal__modal__1Ursl {
+        min-width: 430px;
+        min-height: 335px;
+        max-width: 395px;
+        padding: 40px 20px 20px;
+      }
+    }
+  }
+
+:local(.before-title) {
+    align-items: stretch;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 1em;
+  
+    span {
+      font-weight: 300;
+    }
+}
+
+:local(.modal-header) {
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
+    max-width: 242px;
+    margin: 0px auto;
+    position: relative;
+    right: 20px;
+    font-size: 20px;
+    // display: flex;
+    margin-bottom: 35px;
+
+    h3{
+        width: 100%;
+    }
+    &:before {
+        content: "";
+    //   width: 355px; //346px
+    //   position: absolute;
+    //   left: -55px;   //-63px
+        width: 375px;
+        position: absolute;
+        left: -64px;
+        right: 0;
+        margin: 0 auto;
+        background-color: #f7f7f7;
+        height: 1px;
+        bottom: -20px;  //-18px
+    }
+}
+
+:local(.column) {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    flex-basis: auto;
+
+    text-align: left;
+}
+
+:local(.btn-center){
+    display: flex;
+    flex-flow: inherit;
+    align-items: center;
+    :local(.btn-conf){
+        min-width: 120px !important;
+    }
+}

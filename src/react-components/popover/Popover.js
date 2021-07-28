@@ -40,6 +40,7 @@ export function Popover({
   onChangeVisible,
   popoverApiRef,
   place,
+  share,
   showTitle,
   showArrow
 }) {
@@ -136,7 +137,12 @@ export function Popover({
       })}
       {visible &&
         createPortal(
-          <div className={classNames({ [styles.placeContainer]: place == "place" })}>
+          <div
+            className={classNames({
+              [styles.placeContainer]: place == "place",
+              [styles.shareContainer]: place == "share"
+            })}
+          >
             {place == "place" ? (
               <Close onClick={closePopover} className={classNames({ [styles.placeClose]: place == "place" })} />
             ) : (
@@ -147,7 +153,8 @@ export function Popover({
               ref={setPopperElement}
               className={classNames(styles.popover, {
                 [styles.fullscreen]: fullscreen,
-                [styles.placepopover]: place == "place"
+                [styles.placepopover]: place == "place",
+                [styles.sharepopover]: place == "share"
               })}
               style={fullscreen ? undefined : popperStyles}
               {...attributes.popper}
@@ -162,7 +169,8 @@ export function Popover({
               )}
               <div
                 className={classNames(styles.content, {
-                  [styles.placeContent]: place == "place"
+                  [styles.placeContent]: place == "place",
+                  [styles.shareContent]: place == "share"
                 })}
               >
                 {typeof Content === "function" ? (

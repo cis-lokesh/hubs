@@ -71,7 +71,7 @@ export function EnterOnDeviceModal({
                 defaultMessage="Keep this page open to use this code."
               />
             </strong>
-            {headsetConnected && (
+            {/* {headsetConnected && (
               <>
                 <hr
                   data-or-text={intl.formatMessage({ id: "enter-on-device-modal.divider-label", defaultMessage: "or" })}
@@ -152,7 +152,7 @@ export function EnterOnDeviceModal({
                   </>
                 )}
               </>
-            )}
+            )} */}
           </>
         )}
       </Column>

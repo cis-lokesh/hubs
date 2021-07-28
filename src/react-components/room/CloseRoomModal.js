@@ -2,10 +2,11 @@ import React, { useState, useCallback } from "react";
 import { FormattedMessage } from "react-intl";
 import PropTypes from "prop-types";
 import { Modal } from "../modal/Modal";
-import { CloseButton } from "../input/CloseButton";
+import { GoBack } from "../input/BackClose";
 import { Button, CancelButton } from "../input/Button";
 import { Column } from "../layout/Column";
 import { TextInputField } from "../input/TextInputField";
+import styles from "./CloseRoomModal.scss";
 
 export function CloseRoomModal({ roomName, onClose, onConfirm }) {
   const [confirmText, setConfirmText] = useState("");
@@ -25,9 +26,10 @@ export function CloseRoomModal({ roomName, onClose, onConfirm }) {
   return (
     <Modal
       title={<FormattedMessage id="close-room-modal.title" defaultMessage="Close Room" />}
-      beforeTitle={<CloseButton onClick={onClose} />}
+      beforeTitle={<GoBack onClick={onClose} />}
+      overrideStyles={styles}
     >
-      <Column padding center centerMd="both" grow>
+      <Column padding overrideStyles={styles}>
         <p>
           <FormattedMessage
             id="close-room-modal.message"
@@ -52,10 +54,13 @@ export function CloseRoomModal({ roomName, onClose, onConfirm }) {
             )
           }
         />
-        <Button preset="accept" onClick={onClickConfirm}>
-          <FormattedMessage id="close-room-modal.confirm" defaultMessage="Yes, Close Room" />
-        </Button>
-        <CancelButton onClick={onClose} />
+        <div className={styles.btnCenter}>
+          <Button preset="custom3" className={styles.btnConf} onClick={onClickConfirm}>
+            <FormattedMessage id="close-room-modal.confirm" defaultMessage="Yes, Close Room" />
+          </Button>
+          <br />
+          <CancelButton onClick={onClose} />
+        </div>
       </Column>
     </Modal>
   );

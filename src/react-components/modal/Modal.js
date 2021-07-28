@@ -46,7 +46,9 @@ export function Modal({
           {/* <div className={styles.afterTitle}>{afterTitle}</div> */}
         </div>
       )}
-      <div className={classNames(styles.content, contentClassName)}>{children}</div>
+      <div className={classNames(overrideStyles.content ? overrideStyles.content : styles.content, contentClassName)}>
+        {children}
+      </div>
     </div>
   );
 }

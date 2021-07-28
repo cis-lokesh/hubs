@@ -5,7 +5,21 @@ import styles from "./Column.scss";
 
 export const Column = forwardRef(
   (
-    { as: Component, className, gap, padding, center, margin, alignleft, centerMd, grow, overflow, children, ...rest },
+    {
+      as: Component,
+      className,
+      gap,
+      padding,
+      center,
+      margin,
+      alignleft,
+      centerMd,
+      grow,
+      overflow,
+      children,
+      overrideStyles,
+      ...rest
+    },
     ref
   ) => {
     const gapClass = gap === true ? styles.mdGap : styles[`${gap}Gap`];
@@ -30,6 +44,7 @@ export const Column = forwardRef(
             [styles.alignleft]: alignleft
           },
           className
+          // overrideStyles.column ? overrideStyles.column : styles.column
         )}
       >
         {children}

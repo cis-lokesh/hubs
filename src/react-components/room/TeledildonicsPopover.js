@@ -21,6 +21,7 @@ export function TeledildonicsPopoverButton({ items }) {
       content={props => <ListGridPopover items={items} {...props} />}
       placement="top"
       offsetDistance={28}
+      place="teledildonics"
     >
       {({ togglePopover, popoverVisible, triggerRef }) => (
         <ToolbarButton

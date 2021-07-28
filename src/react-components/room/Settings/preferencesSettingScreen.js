@@ -1524,7 +1524,7 @@ class PreferencesSettingScreen extends Component {
                           </li>
                           <li>
                             <a data-toggle="tab" href="#Teleport">
-                              Teleport
+                              Touchscreen
                             </a>
                           </li>
                         </ul>
