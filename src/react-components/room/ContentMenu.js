@@ -23,7 +23,7 @@ ContentMenuButton.propTypes = {
 export function ObjectsMenuButton(props) {
   return (
     <ContentMenuButton {...props}>
-      <ObjectsIcon />
+      {/* <ObjectsIcon /> */}
       <span>
         <FormattedMessage id="content-menu.objects-menu-button" defaultMessage="Objects" />
       </span>

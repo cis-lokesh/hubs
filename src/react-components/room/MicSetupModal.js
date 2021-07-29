@@ -41,7 +41,7 @@ export function MicSetupModal({
       {...rest}
       overrideStyles={styles}
     >
-      <Column center padding className={styles.content}>
+      <Column center className={styles.content}>
         <p>
           <FormattedMessage
             id="mic-setup-modal.check-mic"

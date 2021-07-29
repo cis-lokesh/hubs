@@ -1,0 +1,60 @@
+@use "../styles/theme.scss";
+
+
+
+:local(.modal-header) {
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
+    max-width: 242px;
+    margin: 0px auto;
+    position: relative;
+    right: 20px;
+    font-size: 20px;
+   // display: flex;
+    margin-bottom: 16px;
+  
+    h3{
+      width: 100%;
+    }
+    &:before {
+      content: "";
+      // width: 355px; //346px
+      // left: -55px;   //-63px
+      // width: 339px;
+      // left: -32px;
+    
+      // background-color: #f7f7f7;
+   
+      // bottom: -19px;  //-18px
+   
+      width: 324px;
+      position: absolute;
+      left: -39px;
+      right: 0;
+      margin: 0 auto;
+      background-color: #f7f7f7;
+      height: 1px;
+      bottom: -19px;
+    }
+}
+
+:local(.before-title) {
+    align-items: stretch;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 1em;
+  
+    span {
+      font-weight: 300;
+    }
+}
+
+:local(.content) {
+   
+    overflow: hidden;
+    width: 100%;
+    padding-top: 45px;
+
+}

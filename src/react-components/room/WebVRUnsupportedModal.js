@@ -1,16 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Modal } from "../modal/Modal";
-import { CloseButton } from "../input/CloseButton";
+import { GoBack } from "../input/BackClose";
 import { Button } from "../input/Button";
 import { Column } from "../layout/Column";
 import { FormattedMessage } from "react-intl";
+import styles from "./WebVRUnsupportedModal.scss";
 
 export function WebVRUnsupportedModal({ onClose }) {
   return (
     <Modal
       title={<FormattedMessage id="webvr-unsupported-modal.title" defaultMessage="Enter in VR" />}
-      beforeTitle={<CloseButton onClick={onClose} />}
+      beforeTitle={<GoBack onClick={onClose} />}
+      overrideStyles={styles}
     >
       <Column padding center>
         <p>

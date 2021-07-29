@@ -158,6 +158,11 @@
 :local(.accent2) {
   color: theme.$text5-color;
   background-color: theme.$accent2-color;
+  width: 50% !important;
+  padding: 0px;
+  border: 1px solid transparent;
+  text-align: center;
+  border-radius: 70px 70px 70px 70px;
 
   svg {
     *[stroke=\#000] {
@@ -285,19 +290,18 @@
 :local(.accent) {
   color: theme.$text5-color;
   background-color: theme.$transparent;
-  width: 100%;
+  width: 50% !important;
   padding: 0px;
   display: block;
   font-weight: 500;
   font-size: 20px;
   border: 1px solid transparent;
   text-align: center;
- // margin-top: 10px;
-  border-radius: 80px 0px 80px 0px;
+  
+  border-radius: 70px 70px 70px 70px;
   margin-left: 16px;
-  margin-right: 16px;
- // min-width: 324px !important;
-  min-width: 230px !important;
+  margin-right: 16px; 
+  min-width: 180px !important;
   height: 50px;
  
  
@@ -315,13 +319,13 @@
   &:hover {
     color: theme.$text5-color-hover;
     background-color: theme.$accent-color-pressed;
-    border-radius: 80px 0px 80px 0px;
+     
   }
 
   &:active {
     color: theme.$text5-color-pressed;
     background-color: theme.$accent-color-pressed;
-     border-radius: 80px 0px 80px 0px;
+      
   }
   @media screen and (max-width: theme.$breakpoint-md){
     font-size: 25px;
@@ -342,8 +346,8 @@
 :local(.basic-accent) {
   color: theme.$text5-color;
   background-color: theme.$transparent;
-
-  width: 100%;
+  border-radius: 70px 70px 70px 70px;
+  width: 50% !important;
   padding: 10px 70px 10px 70px;
   display: block;
   font-weight: 500;
@@ -351,7 +355,6 @@
   border: 1px solid transparent;
   text-align: center;
  
-  border-radius: 80px 0px 80px 0px;
   margin-left: 16px;
   margin-right: 16px;
  
@@ -370,13 +373,13 @@
   &:hover {
     color: theme.$text5-color-hover;
     background-color: theme.$accent-color-pressed;
-    border-radius: 80px 0px 80px 0px;
+   
   }
 
   &:active {
     color: theme.$text5-color-pressed;
     background-color: theme.$accent-color-pressed;
-     border-radius: 80px 0px 80px 0px;
+ 
   }
   @media screen and (max-width: theme.$breakpoint-md){
     font-size: 18px;

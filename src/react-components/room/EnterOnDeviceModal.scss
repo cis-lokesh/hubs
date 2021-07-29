@@ -33,31 +33,19 @@
 
 :local(.modal) {
   position: relative;
-  // display: flex;
-  // flex-direction: column;
-  // height: max-content;
-  // height: 100%;
+ 
   background: url("../../assets/images/modal-image.png");
-  // border: 1px solid theme.$border1-color;
-  // border-radius: theme.$border-radius-regular;
-  // margin: 24px;
-  // z-index: 1;
-  // width: 100%;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // max-width: 533px;
-  // max-height: 578px;
-   color: theme.$text5-color;
-     
-  
+  color: theme.$text5-color;
   min-width: 395px;
   margin: 0px auto;
-  padding: 50px 100px 20px;
+  //padding: 50px 100px 20px;
   min-height: 493px;
   width: auto;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   max-width: 448px;
+
+  padding: 48px 96px 12px;
 
   @media screen and (max-width: theme.$breakpoint-sm){
     
@@ -107,21 +95,21 @@
   right: 20px;
   font-size: 20px;
  // display: flex;
-  margin-bottom: 35px;
+  margin-bottom: 8px;
 
   h3{
     width: 100%;
   }
   &:before {
     content: "";
-    width: 348px;
+    width: 335px;
     position: absolute;
-    left: -46px;
+    left: -35px;
     right: 0;
     margin: 0 auto;
     background-color: #f7f7f7;
     height: 1px;
-    bottom: -20px;
+    bottom: -14px;
   }
 }
 

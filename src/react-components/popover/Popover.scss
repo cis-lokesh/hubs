@@ -154,7 +154,7 @@
     background-repeat: no-repeat;
     min-height: 100px;
     max-height: 400px;
-    min-width: 450px;
+   // min-width: 450px;
     background-repeat: no-repeat;
     background-size: 100% 80%;
   //  padding: 20px;
@@ -324,7 +324,15 @@
 // //  padding: 20px;
 //   border:none;
 }
+:local(.tele-content){
+  &:hover{
+    background: url(../../assets/images/commingsoon.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    text-align: center;
+  }
 
+}
 
 
 

@@ -1562,14 +1562,14 @@
   }  
 
   &:hover :local(.icon-container) {
-    background-color: theme.$accent-color-hover;
+    background-color: #fff;
     svg {
       *[stroke=\#000] {
-        stroke: theme.$white;
+        stroke: #111;
       }
-  
+      
       *[fill=\#000] {
-        fill: theme.$white;
+        fill: #111;
       }
     }
   }
@@ -1604,11 +1604,11 @@
 
         svg {
           *[stroke=\#000] {
-            stroke: theme.$accent-color;
+            stroke: theme.$accent-color-hover;
           }
       
           *[fill=\#000] {
-            fill: theme.$accent-color;
+            fill: theme.$accent-color-hover;
           }
         }
       }

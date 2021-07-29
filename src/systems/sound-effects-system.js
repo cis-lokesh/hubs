@@ -6,7 +6,7 @@ import URL_TAP_MELLOW from "../assets/sfx/tap_mellow.mp3";
 import URL_PEN_SPAWN from "../assets/sfx/PenSpawn.mp3";
 import URL_PEN_DRAW from "../assets/sfx/PenDraw1.mp3";
 import URL_CAMERA_SNAPSHOT from "../assets/sfx/PicSnapHey.mp3";
-import URL_WELCOME from "../assets/sfx/welcome.mp3";
+//import URL_WELCOME from "../assets/sfx/welcome.mp3";
 import URL_QUACK from "../assets/sfx/quack.mp3";
 import URL_SPECIAL_QUACK from "../assets/sfx/specialquack.mp3";
 import URL_POP from "../assets/sfx/pop.mp3";
@@ -77,7 +77,7 @@ export class SoundEffectsSystem {
       [SOUND_SPAWN_PEN, URL_PEN_SPAWN],
       [SOUND_PEN_START_DRAW, URL_PEN_DRAW],
       [SOUND_CAMERA_TOOL_TOOK_SNAPSHOT, URL_CAMERA_SNAPSHOT],
-      [SOUND_ENTER_SCENE, URL_WELCOME],
+      // [SOUND_ENTER_SCENE, URL_WELCOME],
       [SOUND_QUACK, URL_QUACK],
       [SOUND_SPECIAL_QUACK, URL_SPECIAL_QUACK],
       [SOUND_CHAT_MESSAGE, URL_POP],

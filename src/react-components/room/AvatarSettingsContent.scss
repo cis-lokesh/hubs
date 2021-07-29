@@ -6,41 +6,24 @@
   margin: auto;
   position: relative;
   min-width: 490px;
-//   // display: flex;
-//   // flex-direction: column;
-//   // height: max-content;
-//   // height: 100%;
-
-//   min-width: 395px;
-//   margin: 0px auto;
-//   padding: 45px 30px 20px;
- 
-//   width: auto;
-  
-//   max-width: 500px ;  //395px;          
+           
 
   @media screen and (min-width: theme.$breakpoint-sm){
     min-width: 330px;
     max-height: 600px;
-    // max-width: 295px;
-    // padding: 25px 20px 20px;
+ 
   }
 
   @media screen and (min-width: theme.$breakpoint-md){
     max-width: 500px;
     max-height: 550px;
      min-width: 490px;
-    // min-height: 335px;
-    // max-width: 395px;
-    // padding: 40px 20px 20px;
+ 
   }
   @media screen and (max-width: theme.$breakpoint-md){
     max-width: 500px;
     max-height: 550px;
-    // min-width: 550px;
-    // min-height: 335px;
-    // max-width: 395px;
-    // padding: 40px 20px 20px;
+  
   }
 
 }
@@ -189,12 +172,7 @@
     // min-height: 300px;
     // border-radius: 8px;
     background: url("../../assets/images/Avatar-bg.png");
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // width: 298px;
-    // height: 280px;
-    // min-height: 280px;
-    // background-color: theme.$tile-bg-color;
+  
     background-repeat: no-repeat;
     background-size: cover;
     width: 300px;

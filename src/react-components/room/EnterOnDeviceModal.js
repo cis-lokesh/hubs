@@ -23,20 +23,20 @@ export function EnterOnDeviceModal({
 
   return (
     <Modal
-      title={<FormattedMessage id="enter-on-device-modal.title" defaultMessage="Enter on Device" />}
+      title={<FormattedMessage id="enter-on-device-modal.title" defaultMessage="Enter in VR" />}
       beforeTitle={<GoBack onClick={onBack} />}
       className={className}
       {...rest}
       overrideStyles={styles}
     >
-      <Column center={loadingCode ? "both" : true} alignleft padding grow>
+      <Column center={loadingCode ? "both" : true} padding grow>
         {loadingCode ? (
-          <b style={{ "font-size": "12px" }}>
+          <b style={{ "font-size": "17px" }}>
             <FormattedMessage id="enter-on-device-modal.generating-code" defaultMessage="Generating join code..." />
           </b>
         ) : (
           <>
-            <b style={{ "font-size": "12px" }}>
+            <b style={{ "font-size": "15px" }}>
               <FormattedMessage id="enter-on-device-modal.heading" defaultMessage="Enter on Wireless Headset" />
             </b>
             <small>
@@ -71,7 +71,8 @@ export function EnterOnDeviceModal({
                 defaultMessage="Keep this page open to use this code."
               />
             </strong>
-            {/* {headsetConnected && (
+            {
+              /* {headsetConnected && (
               <>
                 <hr
                   data-or-text={intl.formatMessage({ id: "enter-on-device-modal.divider-label", defaultMessage: "or" })}
@@ -152,7 +153,28 @@ export function EnterOnDeviceModal({
                   </>
                 )}
               </>
-            )} */}
+            )} */
+              <Button
+                preset="accent5"
+                lg
+                style={{
+                  minWidth: "unset",
+                  display: "flex",
+                  flexWrap: "nowrap",
+                  alignContent: "center",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "row",
+                  width: "auto"
+                }}
+                onClick={onEnterOnConnectedHeadset}
+              >
+                <VRIcon />
+                <span>
+                  <FormattedMessage id="enter-on-device-modal.enter-in-vr-button" defaultMessage="Enter in VR" />
+                </span>
+              </Button>
+            }
           </>
         )}
       </Column>

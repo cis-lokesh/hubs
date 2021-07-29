@@ -170,7 +170,8 @@ export function Popover({
               <div
                 className={classNames(styles.content, {
                   [styles.placeContent]: place == "place",
-                  [styles.shareContent]: place == "share"
+                  [styles.shareContent]: place == "share",
+                  [styles.teleContent]: place == "teledildonics"
                 })}
               >
                 {typeof Content === "function" ? (

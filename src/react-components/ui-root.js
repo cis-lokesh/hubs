@@ -1184,39 +1184,40 @@ class UIRoot extends Component {
             icon: AvatarIcon,
             onClick: () => this.setSidebar("profile")
           },
-          {
-            id: "favorite-rooms",
-            label: <FormattedMessage id="more-menu.favorite-rooms" defaultMessage="Favorite Rooms" />,
-            icon: FavoritesIcon,
-            onClick: () =>
-              this.props.performConditionalSignIn(
-                () => this.props.hubChannel.signedIn,
-                () => {
-                  showFullScreenIfAvailable();
-                  this.props.mediaSearchStore.sourceNavigateWithNoNav("favorites", "use");
-                },
-                SignInMessages.favoriteRooms
-              )
-          },
-          {
-            id: "preferences",
-            label: "Preferences",
-            icon: SettingsIcon,
-            onClick: () => this.setState({ openSetting: !this.openSetting })
-            // onClick: () => this.setState({ showPrefs: true })
-          },
+          // {
+          //   id: "favorite-rooms",
+          //   label: <FormattedMessage id="more-menu.favorite-rooms" defaultMessage="Favorite Rooms" />,
+          //   icon: FavoritesIcon,
+          //   onClick: () =>
+          //     this.props.performConditionalSignIn(
+          //       () => this.props.hubChannel.signedIn,
+          //       () => {
+          //         showFullScreenIfAvailable();
+          //         this.props.mediaSearchStore.sourceNavigateWithNoNav("favorites", "use");
+          //       },
+          //       SignInMessages.favoriteRooms
+          //     )
+          // },
+          // {
+          //   id: "preferences",
+          //   label: "Preferences",
+          //   icon: SettingsIcon,
+          //   onClick: () => this.setState({ openSetting: !this.openSetting })
+          //   // onClick: () => this.setState({ showPrefs: true })
+          // },
           {
             id: "worlds",
             label: <FormattedMessage id="more-menu.worlds" defaultMessage="Worlds" />,
             icon: WorldIcon,
             onClick: () => this.setState({ showWorlds: true })
-          },
-          {
-            id: "events",
-            label: <FormattedMessage id="more-menu.events" defaultMessage="Events" />,
-            icon: EventIcon,
-            onClick: () => this.setState({ showEvents: true })
           }
+          //,
+          // {
+          //   id: "events",
+          //   label: <FormattedMessage id="more-menu.events" defaultMessage="Events" />,
+          //   icon: EventIcon,
+          //   onClick: () => this.setState({ showEvents: true })
+          // }
         ].filter(item => item)
       },
       {
@@ -1236,19 +1237,19 @@ class UIRoot extends Component {
               icon: InviteIcon,
               onClick: () => this.props.scene.emit("action_invite")
             },
-          this.isFavorited()
-            ? {
-                id: "unfavorite-room",
-                label: <FormattedMessage id="more-menu.unfavorite-room" defaultMessage="Unfavorite Room" />,
-                icon: StarIcon,
-                onClick: () => this.toggleFavorited()
-              }
-            : {
-                id: "favorite-room",
-                label: <FormattedMessage id="more-menu.favorite-room" defaultMessage="Favorite Room" />,
-                icon: StarOutlineIcon,
-                onClick: () => this.toggleFavorited()
-              },
+          // this.isFavorited()
+          //   ? {
+          //       id: "unfavorite-room",
+          //       label: <FormattedMessage id="more-menu.unfavorite-room" defaultMessage="Unfavorite Room" />,
+          //       icon: StarIcon,
+          //       onClick: () => this.toggleFavorited()
+          //     }
+          //   : {
+          //       id: "favorite-room",
+          //       label: <FormattedMessage id="more-menu.favorite-room" defaultMessage="Favorite Room" />,
+          //       icon: StarOutlineIcon,
+          //       onClick: () => this.toggleFavorited()
+          //     },
           isModerator &&
             entered && {
               id: "streamer-mode",

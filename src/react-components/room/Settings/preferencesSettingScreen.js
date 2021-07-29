@@ -13,6 +13,7 @@ import { FormattedMessage, injectIntl, useIntl, defineMessages } from "react-int
 import { defaultMaterialQualitySetting } from "../../../storage/store";
 import { AVAILABLE_LOCALES } from "../../../assets/locales/locale_config";
 import { themes } from "../../styles/theme";
+import styles from "./style/settings.scss";
 
 /** */
 // import { ToolbarButton } from "../../input/ToolbarButton";
@@ -26,10 +27,6 @@ import "./style/setting.css";
 // import arrowIcon from "../../../assets/images/arrow-icon.png";
 import closeIcon from "../../../assets/images/close-icon.png";
 import menuScaleIcon from "../../../assets/images/menu-scale.png";
-//import MiscSetting from "..;
-// import { MiscSetting } from "./MiscSettings/MiscSetting";
-// import { MovementSetting } from "./MovementSettings";
-/** */
 
 function round(step, n) {
   return Math.round(n / step) * step;
@@ -37,8 +34,8 @@ function round(step, n) {
 
 function WarnIcon() {
   return (
-    <i /* className={styles.flex} */>
-      <FontAwesomeIcon /* className={styles.warnIcon} */ icon={faExclamationTriangle} />
+    <i className={styles.flex}>
+      <FontAwesomeIcon className={styles.warnIcon} icon={faExclamationTriangle} />
     </i>
   );
 }
@@ -807,28 +804,19 @@ class RefreshPrompt extends React.Component {
 
   render() {
     return (
-      <div
-        ref={this.ref}
-        // className={styles.toast}
-      >
-        <div
-        // className={styles.row}
-        >
+      <div ref={this.ref} className={styles.toast}>
+        <div className={styles.row}>
           <WarnIcon />
-          <div
-          // className={styles.refreshPrompt}
-          >
+          <div className={styles.refreshPrompt}>
             <FormattedMessage
               id="preferences-screen.prompt-for-refresh"
               defaultMessage="Your preferences are saved, but some of your changes will not take effect until you refresh the page."
             />
           </div>
-          <div
-          // className={styles.warnIconPlaceholder}
-          />
+          <div className={styles.warnIconPlaceholder} />
         </div>
         <button
-          // className={styles.refreshNowButton}
+          className={styles.refreshNowButton}
           onClick={() => {
             const href = location.href;
             location.href = href;
@@ -1238,6 +1226,13 @@ class PreferencesSettingScreen extends Component {
     // );
     return (
       <div className="use-bootstrap">
+        {shouldPromptForRefresh && (
+          <RefreshPrompt
+            reportHeight={toastHeight => {
+              this.setState({ toastHeight });
+            }}
+          />
+        )}
         <main className="setting-inUp-wrap d-flex flex-wrap align-items-center justify-content-center">
           <div className="container">
             <div className="signinUp-box-setting d-flex flex-wrap justify-content-center">

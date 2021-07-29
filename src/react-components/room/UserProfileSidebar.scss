@@ -5,13 +5,22 @@
   flex-direction: column;
   position: relative;
   align-items: center;
+  width: 325px;
+ 
+  border-radius: 241px 194px 184px 200px;
+  background-color: #e7e7e7;
 
   /* TODO: This styling into AvatarPreview */
   & > :first-child {
     width: 168px;
     height: 300px;
-    min-height: 300px;
-    border-radius: 8px;
+  //  min-height: 300px;
+  //  border-radius: 8px;
     background-color: theme.$tile-bg-color;
+    min-height: 307px;
+    border-radius: 100px;
+
+
+    
   }
 }
