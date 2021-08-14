@@ -1590,14 +1590,13 @@ class UIRoot extends Component {
                   )
                 }
                 modal={this.state.dialog}
-                /*toolbarLeft={
-                  <InvitePopoverContainer
-                    hub={this.props.hub}
-                    hubChannel={this.props.hubChannel}
-                    scene={this.props.scene}
-                  />
-                }*/
-
+                // toolbarLeft={
+                //   <InvitePopoverContainer
+                //     hub={this.props.hub}
+                //     hubChannel={this.props.hubChannel}
+                //     scene={this.props.scene}
+                //   />
+                // }
                 toolbarCenter={
                   <>
                     <CanvasMenu
@@ -1710,14 +1709,14 @@ class UIRoot extends Component {
                         />
                       )}
                     {entered && <SharePopoverContainer scene={this.props.scene} hubChannel={this.props.hubChannel} />}
-                    {entered && (
+                    {/* {entered && (
                       <PlacePopoverContainer
                         scene={this.props.scene}
                         hubChannel={this.props.hubChannel}
                         mediaSearchStore={this.props.mediaSearchStore}
                         showNonHistoriedDialog={this.showNonHistoriedDialog}
                       />
-                    )}
+                    )} */}
                     {watching && (
                       <>
                         <ToolbarButton

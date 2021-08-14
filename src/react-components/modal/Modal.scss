@@ -141,6 +141,9 @@
     }
 
   }
+:local(.content-sign-up){
+  width: 100%;
+}
 
 :local(.sm-fullscreen) {
   @media(max-width: theme.$breakpoint-lg - 1), (max-height: theme.$breakpoint-vr - 1) {

@@ -153,6 +153,8 @@ export function Popover({
               ref={setPopperElement}
               className={classNames(styles.popover, {
                 [styles.fullscreen]: fullscreen,
+                [styles.opaquebackground]: place != "teledildonics",
+                [styles.teledildonicspopover]: place == "teledildonics",
                 [styles.placepopover]: place == "place",
                 [styles.sharepopover]: place == "share"
               })}
@@ -171,7 +173,8 @@ export function Popover({
                 className={classNames(styles.content, {
                   [styles.placeContent]: place == "place",
                   [styles.shareContent]: place == "share",
-                  [styles.teleContent]: place == "teledildonics"
+                  [styles.teledildonicsContent]: place == "teledildonics"
+                  // [styles.teleContent]: place == "teledildonics"
                 })}
               >
                 {typeof Content === "function" ? (

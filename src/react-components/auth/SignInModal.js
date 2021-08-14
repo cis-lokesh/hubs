@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { GoBack } from "../input/BackClose";
 import { Modal } from "../modal/Modal";
@@ -8,7 +8,7 @@ import { TextInputField } from "../input/TextInputField";
 import { Column } from "../layout/Column";
 import { LegalMessage } from "./LegalMessage";
 import styles from "./SignInModal.scss";
-
+import stylessignup from "../../react-components/input/TextInput.scss";
 export const SignInStep = {
   submit: "submit",
   waitForVerification: "waitForVerification",
@@ -80,9 +80,9 @@ export const SignInMessages = defineMessages({
 
 export function SubmitEmail({ onSubmitEmail, initialEmail, privacyUrl, termsUrl, message }) {
   const intl = useIntl();
-
   const [email, setEmail] = useState(initialEmail);
-
+  const [accesscode, setAccesscode] = useState("");
+  const [accesscodeerror, setAccesscodeerror] = useState("Enter a valid Access code");
   const onSubmitForm = useCallback(
     e => {
       e.preventDefault();
@@ -97,30 +97,73 @@ export function SubmitEmail({ onSubmitEmail, initialEmail, privacyUrl, termsUrl,
     },
     [setEmail]
   );
-
+  const onChangeAccesscode = useCallback(
+    e => {
+      setAccesscode(e.target.value);
+      if (!["12345", "67890"].includes(e.target.value)) {
+        setAccesscodeerror("invalid Access Code");
+      } else {
+        setAccesscodeerror(false);
+      }
+    },
+    [setAccesscode]
+  );
   return (
-    <Column center padding margin as="form" onSubmit={onSubmitForm}>
+    <Column margin as="form" onSubmit={onSubmitForm}>
       <p className={styles.label}>
-        {message ? (
-          intl.formatMessage(message)
-        ) : (
-          <FormattedMessage id="sign-in-modal.prompt" defaultMessage="Please Sign In" />
-        )}
+        <h4>
+          {message ? (
+            intl.formatMessage(message)
+          ) : (
+            <FormattedMessage id="sign-in-modal.prompt" defaultMessage="Log In" />
+          )}
+        </h4>
       </p>
-      <TextInputField
-        name="email"
-        type="email"
-        required
-        value={email}
-        onChange={onChangeEmail}
-        placeholder="example@example.com"
-      />
-      <p>
-        <small>
-          <LegalMessage termsUrl={termsUrl} privacyUrl={privacyUrl} />
-        </small>
-      </p>
-      <NextButton type="submit" />
+      <div className={styles.signupbody}>
+        <div className={styles.inputContainer}>
+          <label className={styles.formLbl}>{"Email"}</label>
+          <TextInputField
+            name="email"
+            type="email"
+            required
+            forSignupOnly={true}
+            value={email}
+            // disabled={accesscodeerror ? true : false}
+            onChange={onChangeEmail}
+            placeholder="example@example.com"
+          />
+        </div>
+        <div className={styles.inputContainer}>
+          <label className={styles.formLbl}>{"Access Code"}</label>
+          <input
+            className={stylessignup.signupinput}
+            defaultValue={accesscode}
+            placeholder="******"
+            onBlur={onChangeAccesscode}
+          />
+          {accesscodeerror && <small className={styles.textError}>{accesscodeerror}</small>}
+        </div>
+        <p>
+          {/* <small>
+            <LegalMessage termsUrl={termsUrl} privacyUrl={privacyUrl} />
+          </small> */}
+          <div className={styles.formLbl}>
+            <FormattedMessage
+              id="footer.Request-Access-Code"
+              defaultMessage="<a>Request Access Code</a>"
+              values={{
+                // eslint-disable-next-line react/display-name
+                a: chunks => (
+                  <a className={styles.link} href="https://www.rdland.io/sign-up">
+                    {chunks}
+                  </a>
+                )
+              }}
+            />
+          </div>
+        </p>
+        <NextButton disabled={accesscodeerror ? true : false} type="submit" />
+      </div>
     </Column>
   );
 }
@@ -200,6 +243,7 @@ export function SignInModal({ closeable, onClose, children, ...rest }) {
     <Modal
       title={<FormattedMessage id="sign-in-modal.title" defaultMessage="Sign In" />}
       beforeTitle={closeable && <GoBack onClick={onClose} />}
+      forSignupOnly={true}
       overrideStyles={styles}
       {...rest}
     >

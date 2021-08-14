@@ -96,7 +96,7 @@ export function MediaBrowser({
       }
       // headerRight={headerRight}
     >
-      {mediaSources && (
+      {/* {mediaSources && (
         <div className={styles.buttonNav}>
           {mediaSources.map(source => (
             <Button
@@ -123,7 +123,7 @@ export function MediaBrowser({
             </Button>
           ))}
         </div>
-      )}
+      )} */}
       <div className={styles.content}>
         <Column grow ref={browserRef}>
           {children ? (

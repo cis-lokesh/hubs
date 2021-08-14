@@ -2,8 +2,10 @@ import { waitForDOMContentLoaded } from "./async-utils";
 import configs from "./configs";
 
 // Node these should be synchronized with the top of shared.scss
-const DEFAULT_ACTION_COLOR = "#FF3464";
-const DEFAULT_ACTION_COLOR_LIGHT = "#FF74A4";
+// const DEFAULT_ACTION_COLOR = "#FF3464"; //pink
+// const DEFAULT_ACTION_COLOR_LIGHT = "#FF74A4"; // light pink
+const DEFAULT_ACTION_COLOR = "#fff";
+const DEFAULT_ACTION_COLOR_LIGHT = "#fff";
 
 const DEFAULT_COLORS = {
   "action-color": DEFAULT_ACTION_COLOR,
@@ -36,31 +38,32 @@ function activateTheme() {
     // NOTE, using the object-based {} setAttribute variant in a-frame
     // seems to not work in Firefox here -- the entities with the mixins are not
     // updated.
-    document.querySelector("#rounded-text-button").setAttribute(
-      "text-button",
-      `textHoverColor: ${actionHoverColor}; textColor: ${actionColor}; backgroundColor: #5D5FEF ; backgroundHoverColor: #5D5FEF;`
-      // `textHoverColor: ${actionHoverColor}; textColor: ${actionColor}; backgroundColor: #fff; backgroundHoverColor: #aaa;`
-    );
+    document
+      .querySelector("#rounded-text-button")
+      .setAttribute(
+        "text-button",
+        `transparent: true; textHoverColor: ${actionHoverColor}; textColor: ${actionColor}; backgroundColor: #5D5FEF; backgroundHoverColor: #5D5FEF`
+      );
 
     document
       .querySelector("#rounded-button")
       .setAttribute(
         "text-button",
-        `textHoverColor: ${actionHoverColor}; textColor: ${actionColor}; backgroundColor: #fff; backgroundHoverColor: #aaa;`
+        `transparent: true; textHoverColor: ${actionHoverColor}; textColor: ${actionColor}; backgroundColor: #5D5FEF; backgroundHoverColor: #5D5FEF;`
       );
 
     document
       .querySelector("#rounded-text-action-button")
       .setAttribute(
         "text-button",
-        `textHoverColor: #fff; textColor: #fff; backgroundColor: ${actionColor}; backgroundHoverColor: ${actionHoverColor}`
+        `textHoverColor: #5D5FEF; textColor: #5D5FEF; backgroundColor: ${actionColor}; backgroundHoverColor: ${actionHoverColor}`
       );
 
     document
       .querySelector("#rounded-action-button")
       .setAttribute(
         "text-button",
-        `textHoverColor: #fff; textColor: #fff; backgroundColor: ${actionColor}; backgroundHoverColor: ${actionHoverColor}`
+        `textHoverColor: #5D5FEF; textColor: #5D5FEF; backgroundColor: ${actionColor}; backgroundHoverColor: ${actionHoverColor}`
       );
   }
 }

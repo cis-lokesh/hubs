@@ -12,7 +12,7 @@ html, body, #ui-root, .home-root {
 
 body {
   @extend %default-font;
-  background: theme.$background1-color;
+  // background: theme.$background1-color;
   color: theme.$text1-color;
 }
 

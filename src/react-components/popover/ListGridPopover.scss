@@ -1,5 +1,9 @@
 @use "../styles/theme.scss";
 
+:local(.coming-soon) {
+  // background-image: url("../../assets/images/comingsoon.png");
+  margin: auto;
+}
 
 :local(.list-grid-popover) {
   // padding: 10px;

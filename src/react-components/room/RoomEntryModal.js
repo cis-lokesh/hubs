@@ -38,12 +38,16 @@ export function RoomEntryModal({
           <img src={logoSrc} alt={appName} />
         </div>
         {/* )} */}
-        {/* <div className={styles.roomName}>
-          <h5>
-            <FormattedMessage id="room-entry-modal.room-name-label" defaultMessage="Room Name" />
-          </h5>
-          <p>{roomName}</p>
-        </div> */}
+        {!showJoinRoom &&
+          !showEnterOnDevice &&
+          !showSpectate && (
+            <div className={styles.roomName}>
+              {/* <h5>
+              <FormattedMessage id="room-entry-modal.room-name-label" defaultMessage="Room Name" />
+            </h5> */}
+              <p>{"We are currently full.. pls come back later"}</p>
+            </div>
+          )}
         <Column center className={styles.buttons}>
           {showJoinRoom && (
             <Button preset="accent" style={{ display: "flex" }} onClick={onJoinRoom}>
@@ -65,7 +69,7 @@ export function RoomEntryModal({
             <Button preset="accent" style={{ display: "flex" }} onClick={onSpectate}>
               <BroadcastIcon />
               <span>
-                <FormattedMessage id="room-entry-modal.spectate-button" defaultMessage="Streamer" />
+                <FormattedMessage id="room-entry-modal.spectate-button" defaultMessage="Spectate" />
               </span>
             </Button>
           )}

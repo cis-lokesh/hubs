@@ -13,40 +13,48 @@ export function Modal({
   disableFullscreen,
   leave,
   verify,
-  overrideStyles
+  overrideStyles,
+  forSignupOnly
 }) {
   return (
     <div
       className={classNames(
         overrideStyles.modal ? overrideStyles.modal : styles.modal,
+        forSignupOnly ? "d-flex flex-wrap align-items-center justify-content-center" : "",
         { [styles.smFullscreen]: !disableFullscreen },
         { [styles.leave]: leave },
         { [styles.verify]: verify },
         className
       )}
     >
-      {(title || beforeTitle || afterTitle) && (
-        <div
-          className={classNames(
-            overrideStyles.modalHeader ? overrideStyles.modalHeader : styles.header,
-            { [styles.leaveHeader]: leave },
-            className
-          )}
-        >
+      {!forSignupOnly &&
+        (title || beforeTitle || afterTitle) && (
           <div
             className={classNames(
-              overrideStyles.beforeTitle || styles.beforeTitle,
-              { [styles.beforeTitleLeave]: leave },
+              overrideStyles.modalHeader ? overrideStyles.modalHeader : styles.header,
+              { [styles.leaveHeader]: leave },
               className
             )}
           >
-            {beforeTitle}
+            <div
+              className={classNames(
+                overrideStyles.beforeTitle || styles.beforeTitle,
+                { [styles.beforeTitleLeave]: leave },
+                className
+              )}
+            >
+              {beforeTitle}
+            </div>
+            <h3>{title}</h3>
+            {/* <div className={styles.afterTitle}>{afterTitle}</div> */}
           </div>
-          <h3>{title}</h3>
-          {/* <div className={styles.afterTitle}>{afterTitle}</div> */}
-        </div>
-      )}
-      <div className={classNames(overrideStyles.content ? overrideStyles.content : styles.content, contentClassName)}>
+        )}
+      <div
+        className={classNames(
+          overrideStyles.content ? overrideStyles.content : forSignupOnly ? styles.contentSignUp : styles.content,
+          contentClassName
+        )}
+      >
         {children}
       </div>
     </div>
@@ -63,7 +71,8 @@ Modal.propTypes = {
   disableFullscreen: PropTypes.bool,
   leave: PropTypes.bool,
   verify: PropTypes.bool,
-  overrideStyles: PropTypes.object
+  overrideStyles: PropTypes.object,
+  forSignupOnly: PropTypes.bool
 };
 
 Modal.defaultProps = {

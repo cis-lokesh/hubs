@@ -5,7 +5,7 @@ import { TextInput } from "./TextInput";
 import { useId } from "./useId";
 
 export const TextInputField = memo(
-  forwardRef(({ className, error, description, inputClassName, label, fullWidth, ...rest }, ref) => {
+  forwardRef(({ forSignupOnly, className, error, description, inputClassName, label, fullWidth, ...rest }, ref) => {
     const id = useId();
     const labelId = useId();
 
@@ -13,13 +13,14 @@ export const TextInputField = memo(
       <InputField
         id={labelId}
         htmlFor={id}
+        forSignupOnly={forSignupOnly}
         className={className}
         label={label}
         error={error}
         description={description}
         fullWidth={fullWidth}
       >
-        <TextInput id={id} ref={ref} className={inputClassName} {...rest} />
+        <TextInput id={id} ref={ref} className={inputClassName} forSignupOnly={forSignupOnly} {...rest} />
       </InputField>
     );
   })
@@ -32,5 +33,6 @@ TextInputField.propTypes = {
   description: PropTypes.node,
   labelClassName: PropTypes.string,
   inputClassName: PropTypes.string,
-  fullWidth: PropTypes.bool
+  fullWidth: PropTypes.bool,
+  forSignupOnly: PropTypes.bool
 };

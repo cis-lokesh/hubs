@@ -10,7 +10,19 @@ import { handleTextFieldFocus, handleTextFieldBlur } from "../../utils/focus-uti
 export const TextInput = memo(
   forwardRef(
     (
-      { id, disabled, invalid, className, beforeInput, afterInput, onFocus, onBlur, as: InputElement, ...rest },
+      {
+        id,
+        disabled,
+        invalid,
+        className,
+        beforeInput,
+        afterInput,
+        onFocus,
+        onBlur,
+        as: InputElement,
+        forSignupOnly,
+        ...rest
+      },
       ref
     ) => {
       // TODO: This is REALLY bad. We're overriding default behavior of text inputs to get a fullscreen behavior to work on Firefox.
@@ -33,19 +45,22 @@ export const TextInput = memo(
 
       return (
         <div
-          className={classNames(
-            styles.outerWrapper,
-            buttonStyles.inputGroup,
-            iconButtonStyles.inputGroup,
-            { [styles.invalid]: invalid, [styles.disabled]: disabled },
-            className
-          )}
+          className={
+            !forSignupOnly &&
+            classNames(
+              styles.outerWrapper,
+              buttonStyles.inputGroup,
+              iconButtonStyles.inputGroup,
+              { [styles.invalid]: invalid, [styles.disabled]: disabled },
+              className
+            )
+          }
         >
-          <div className={styles.beforeInput}>{beforeInput}</div>
+          {!forSignupOnly && <div className={styles.beforeInput}>{beforeInput}</div>}
           <div className={styles.inputWrapper}>
             <InputElement
               id={id}
-              className={styles.textInput}
+              className={forSignupOnly ? styles.signupinput : styles.textInput}
               disabled={disabled}
               onFocus={handleFocus}
               onBlur={handleBlur}
@@ -53,10 +68,12 @@ export const TextInput = memo(
               ref={ref}
             />
           </div>
-          <div className={styles.afterInput}>
-            {invalid && <WarningIcon className={styles.invalidIcon} />}
-            {afterInput}
-          </div>
+          {afterInput && (
+            <div className={styles.afterInput}>
+              {invalid && <WarningIcon className={styles.invalidIcon} />}
+              {afterInput}
+            </div>
+          )}
         </div>
       );
     }
@@ -73,7 +90,8 @@ TextInput.propTypes = {
   afterInput: PropTypes.node,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
-  as: PropTypes.elementType
+  as: PropTypes.elementType,
+  forSignupOnly: PropTypes.bool
 };
 
 TextInput.defaultProps = {

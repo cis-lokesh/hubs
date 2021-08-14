@@ -21,6 +21,7 @@ export function ReactionPopoverButton({ items }) {
       content={props => <ImageGridPopover items={items} {...props} />}
       placement="top"
       offsetDistance={28}
+      place="reaction"
     >
       {({ togglePopover, popoverVisible, triggerRef }) => (
         <ToolbarButton

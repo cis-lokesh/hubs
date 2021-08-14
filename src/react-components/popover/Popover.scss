@@ -145,6 +145,20 @@
   overflow: hidden;
 }
 
+:local(.opaquebackground) {
+  background-color: theme.$background1-color;
+  border: 1px solid theme.$background1-color;
+}
+
+:local(.teledildonicspopover) {
+  background: url(../../assets/images/comingsoon.png);
+  border: transparent;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-width: 200px;
+  min-height: 100px;
+  margin-bottom: 40px;
+}
 
 :local(.placepopover){
   
@@ -180,6 +194,10 @@
   //margin-left: 10px; 
   padding: 8px !important;
  
+}
+
+:local(.teledildonics-content) {
+  margin: auto;
 }
 
 :local(.place-close){
@@ -324,15 +342,15 @@
 // //  padding: 20px;
 //   border:none;
 }
-:local(.tele-content){
-  &:hover{
-    background: url(../../assets/images/commingsoon.png);
-    background-repeat: no-repeat;
-    background-size: auto;
-    text-align: center;
-  }
+// :local(.tele-content){
+//   &:hover{
+//     background: url(../../assets/images/commingsoon.png);
+//     background-repeat: no-repeat;
+//     background-size: auto;
+//     text-align: center;
+//   }
 
-}
+// }
 
 
 

@@ -21,8 +21,8 @@
       }
     
       @media screen and (min-width: theme.$breakpoint-lg){
-        min-width: 400px;
-        min-height: 335px;
+        min-width: 395px;
+        min-height: 415px;
         max-width: 395px;
         padding: 40px 20px 20px;
       }
@@ -70,7 +70,9 @@
     }
 }
 :local(.label){
-    text-align: left !important;
+    // text-align: left !important;
+    margin-bottom: 20px;
+    padding: 0px 35px 0px 55px;
 }
 
 :local(.column) {
@@ -84,3 +86,29 @@
     margin-top: 10%;
     margin-bottom:5% ;
   }
+
+:local(.signupbody) {
+  width: 160px;
+  margin: 0px auto;
+}
+
+:local(.form-lbl){
+  font-style: italic;
+  font-size: 10px;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin-bottom: 5px;
+}
+
+:local(.text-error){
+  font-style: italic;
+  font-size: 8px;
+  line-height: 8px;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+:local(.input-container){
+  margin-bottom: 15px;
+}
