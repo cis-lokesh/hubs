@@ -1,9 +1,9 @@
 // import React, { useEffect, useState } from "react";
 import React from "react";
 import { TeledildonicsPopoverButton } from "./TeledildonicsPopover";
-// import { buttplugConnection } from "../../utils/buttplug";
+import { buttplugConnection } from "../../utils/buttplug";
 // import { getMicrophonePresences } from "../../utils/microphone-presence";
-// const Buttplug = window.Buttplug;
+const Buttplug = window.Buttplug;
 // export function userFromPresence(sessionId, presence, micPresences, mySessionId) {
 //   const meta = presence.metas[presence.metas.length - 1];
 //   const micPresence = micPresences.get(sessionId);
@@ -43,11 +43,11 @@ import { TeledildonicsPopoverButton } from "./TeledildonicsPopover";
 
 export function TeledildonicsPopoverContainer({ presences, mySessionId }) {
   // const people = usePeopleList(presences, mySessionId);
-  console.log("🚀 ~ file: ListGridPopover.js ~ line 8 ~ ListGridPopover ~ items");
+  // console.log("🚀 ~ file: ListGridPopover.js ~ line 8 ~ ListGridPopover ~ items");
   // const tools = document.createElement("script");
   // tools.setAttribute("src", "https://cdn.jsdelivr.net/npm/buttplug@1.0.1/dist/web/buttplug.min.js");
   // document.head.appendChild(tools);
-  // tools.onload =
-  // buttplugConnection(Buttplug);
+  //tools.onload =
+  buttplugConnection(Buttplug);
   return <TeledildonicsPopoverButton />;
 }

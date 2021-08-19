@@ -16,6 +16,7 @@ import { useMaintainScrollPosition } from "../misc/useMaintainScrollPosition";
 import { spawnChatMessage } from "../chat-message";
 import { discordBridgesForPresences } from "../../utils/phoenix-utils";
 import { useIntl } from "react-intl";
+import Peer from "peerjs";
 
 const ChatContext = createContext({ messageGroups: [], sendMessage: () => {} });
 
@@ -157,27 +158,51 @@ ChatContextProvider.propTypes = {
   messageDispatch: PropTypes.object
 };
 
-export function ChatSidebarContainer({ scene, canSpawnMessages, presences, occupantCount, onClose }) {
+export function ChatSidebarContainer({ scene, canSpawnMessages, presences, occupantCount, onClose, sessionId }) {
   const { messageGroups, sendMessage, setMessagesRead } = useContext(ChatContext);
   const [onScrollList, listRef, scrolledToBottom] = useMaintainScrollPosition(messageGroups);
   const [message, setMessage] = useState("");
   const intl = useIntl();
-
+  const [peer, setPeer] = useState(new Peer(sessionId));
+  let sessionIds = Object.keys(presences);
+  sessionIds = sessionIds.filter(n => ![sessionId].includes(n));
+  const [oppuser, setOppUser] = useState(sessionIds[0]);
   const onKeyDown = useCallback(
     e => {
       if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault();
         sendMessage(e.target.value);
         setMessage("");
+        const conn = peer.connect(
+          oppuser,
+          {
+            reliable: true
+          }
+        );
+        const tmp = e.target.value;
+        conn.on("open", function() {
+          conn.send({ message: tmp });
+          console.log("message sent----------------------------->");
+        });
       }
     },
     [sendMessage, setMessage]
   );
 
   const onSendMessage = useCallback(
-    () => {
+    peer => {
       sendMessage(message);
       setMessage("");
+      const conn = peer.connect(
+        oppuser,
+        {
+          reliable: true
+        }
+      );
+      conn.on("open", function() {
+        conn.send({ message: message });
+        console.log("message sent----------------------------->");
+      });
     },
     [message, sendMessage, setMessage]
   );
@@ -204,6 +229,11 @@ export function ChatSidebarContainer({ scene, canSpawnMessages, presences, occup
       if (scrolledToBottom) {
         setMessagesRead();
       }
+      peer.on("connection", function(conn) {
+        conn.on("data", data => {
+          console.log("===================================>", data);
+        });
+      });
     },
     [messageGroups, scrolledToBottom, setMessagesRead]
   );
@@ -275,7 +305,7 @@ export function ChatSidebarContainer({ scene, canSpawnMessages, presences, occup
             {message.length === 0 && canSpawnMessages ? (
               <MessageAttachmentButton onChange={onUploadAttachments} />
             ) : (
-              <SendMessageButton onClick={onSendMessage} disabled={message.length === 0} />
+              <SendMessageButton onClick={() => onSendMessage(peer)} disabled={message.length === 0} />
             )}
             {canSpawnMessages && <SpawnMessageButton disabled={message.length === 0} onClick={onSpawnMessage} />}
           </>
@@ -290,7 +320,8 @@ ChatSidebarContainer.propTypes = {
   presences: PropTypes.object.isRequired,
   occupantCount: PropTypes.number.isRequired,
   scene: PropTypes.object.isRequired,
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
+  sessionId: PropTypes.string
 };
 
 export function ChatToolbarButtonContainer(props) {

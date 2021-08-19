@@ -39,5 +39,5 @@ export function TeledildonicsPopoverButton({ items }) {
 }
 
 TeledildonicsPopoverButton.propTypes = {
-  items: PropTypes.array.isRequired
+  items: PropTypes.array
 };

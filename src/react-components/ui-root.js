@@ -1350,7 +1350,8 @@ class UIRoot extends Component {
     ];
 
     //console.log(configs.isAdmin());
-
+    // console.log("------------------------>", this.state);
+    // console.log("//////////////////////////>", this.props);
     return (
       <MoreMenuContextProvider>
         <ReactAudioContext.Provider value={this.state.audioContext}>
@@ -1501,8 +1502,10 @@ class UIRoot extends Component {
                       {this.state.sidebarId === "chat" && (
                         <ChatSidebarContainer
                           presences={this.props.presences}
+                          sessionId={this.props.sessionId}
                           occupantCount={this.occupantCount()}
                           canSpawnMessages={entered && this.props.hubChannel.can("spawn_and_move_media")}
+                          showOptions={this.props.hubChannel.canOrWillIfCreator("update_hub")}
                           scene={this.props.scene}
                           onClose={() => this.setSidebar(null)}
                         />

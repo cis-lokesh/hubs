@@ -97,6 +97,9 @@ export function UserProfileSidebar({
             <FormattedMessage id="user-profile-sidebar.kick-button" defaultMessage="Kick" />
           </Button>
         )}
+        <Button>
+          <FormattedMessage id="user-profile-sidebar.message-button" defaultMessage="Message" />
+        </Button>
       </Column>
     </Sidebar>
   );
