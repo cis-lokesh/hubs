@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { LoadingScreenLayout } from "../layout/LoadingScreenLayout";
 import { Spinner } from "../misc/Spinner";
 import { useRandomMessageTransition } from "./useRandomMessageTransition";
-
+import "./LoadingScreen.css";
 export function LoadingScreen({ logoSrc, message, infoMessages }) {
   const infoMessage = useRandomMessageTransition(infoMessages);
 
@@ -12,8 +12,7 @@ export function LoadingScreen({ logoSrc, message, infoMessages }) {
       logoSrc={logoSrc}
       center={
         <>
-          {/* <Spinner /> */}
-          <p>{message}</p>
+          <p>{message == "Loading" && <div className="loadinggradient" />}</p>
         </>
       }
       // bottom={

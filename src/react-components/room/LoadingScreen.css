@@ -1,0 +1,48 @@
+
+.loadinggradient {
+  width: 100vw;
+  min-height: 10px;
+	background: linear-gradient(-45deg, #B022C9, #1D19FE, #00F8FE);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
+	margin-top: 10px;
+  /* box-shadow: 0 0 5px 5px black inset; */
+}
+.loadinggradient:before,
+.loadinggradient:after {
+	content: "";
+	position: absolute;
+	left: 0px;
+	background: linear-gradient(-45deg, #B022C9, #1D19FE, #00F8FE);
+	background-size: 400%;
+	width: calc(100vw + 4px);
+	height: calc(10px + 4px);
+	z-index: -1;
+	animation: animate 5s ease infinite;
+}
+.loadinggradient:after {
+	filter: blur(15px);
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@keyframes animate {
+	0% {
+		background-position: 0 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0 50%;
+	}
+}

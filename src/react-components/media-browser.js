@@ -503,13 +503,13 @@ class MediaBrowserContainer extends Component {
         entries.length > 0 ||
         !showEmptyStringOnNoResult ? (
           <>
-            {/* {urlSource === "avatars" && (
+            {urlSource === "avatars" && (
               <CreateTile
                 type="avatar"
                 onClick={this.onCreateAvatar}
                 label={<FormattedMessage id="media-browser.create-avatar" defaultMessage="Create Avatar" />}
               />
-            )} */}
+            )}
             {urlSource === "scenes" &&
               configs.feature("enable_spoke") && (
                 <CreateTile

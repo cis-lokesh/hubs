@@ -25,7 +25,7 @@ export function AvatarModal({
         <div
           className={classNames(styles.avatarcont, styles.signinUpBox, "d-flex", "flex-wrap", "justify-content-center")}
         >
-          <div className={classNames("signinUp-wrap")}>
+          <div className={classNames(styles.signinUpWrap)}>
             {(title || beforeTitle || afterTitle) && (
               <div className={classNames(styles.header, { [stylemodal.leaveHeader]: leave }, className)}>
                 <div className={classNames(styles.beforeTitle, { [styles.beforeTitleLeave]: leave }, className)}>

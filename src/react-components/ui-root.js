@@ -1183,7 +1183,7 @@ class UIRoot extends Component {
             label: <FormattedMessage id="more-menu.profile" defaultMessage="Change Name & Avatar" />,
             icon: AvatarIcon,
             onClick: () => this.setSidebar("profile")
-          },
+          }
           // {
           //   id: "favorite-rooms",
           //   label: <FormattedMessage id="more-menu.favorite-rooms" defaultMessage="Favorite Rooms" />,
@@ -1205,12 +1205,12 @@ class UIRoot extends Component {
           //   onClick: () => this.setState({ openSetting: !this.openSetting })
           //   // onClick: () => this.setState({ showPrefs: true })
           // },
-          {
-            id: "worlds",
-            label: <FormattedMessage id="more-menu.worlds" defaultMessage="Worlds" />,
-            icon: WorldIcon,
-            onClick: () => this.setState({ showWorlds: true })
-          }
+          // {
+          //   id: "worlds",
+          //   label: <FormattedMessage id="more-menu.worlds" defaultMessage="Worlds" />,
+          //   icon: WorldIcon,
+          //   onClick: () => this.setState({ showWorlds: true })
+          // }
           //,
           // {
           //   id: "events",

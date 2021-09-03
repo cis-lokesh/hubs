@@ -123,10 +123,20 @@ class AvatarPreview extends Component {
   resize = () => {
     let width = this.canvas.parentElement.offsetWidth;
     let height = this.canvas.parentElement.offsetHeight;
+
+    // if (this.props.editorpreview != true) {
+    //   width -= 160;
+    //   height -= 28;
+    // }
     if (this.props.editorpreview != true) {
-      width -= 160;
-      height -= 28;
+      width = 70;
+      height = 160;
     }
+    // } else if (this.props.editorpreview != true && height > 300) {
+    // width = 50;
+    // height = 150;
+    // }
+
     this.previewRenderer.setSize(width, height);
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
