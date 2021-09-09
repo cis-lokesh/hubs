@@ -1,9 +1,9 @@
 // import React, { useEffect, useState } from "react";
 import React from "react";
 import { TeledildonicsPopoverButton } from "./TeledildonicsPopover";
-import { buttplugConnection } from "../../utils/buttplug";
+// import { buttplugConnection } from "../../utils/buttplug";
 // import { getMicrophonePresences } from "../../utils/microphone-presence";
-const Buttplug = window.Buttplug;
+// const Buttplug = window.Buttplug;
 // export function userFromPresence(sessionId, presence, micPresences, mySessionId) {
 //   const meta = presence.metas[presence.metas.length - 1];
 //   const micPresence = micPresences.get(sessionId);
@@ -48,6 +48,6 @@ export function TeledildonicsPopoverContainer({ presences, mySessionId }) {
   // tools.setAttribute("src", "https://cdn.jsdelivr.net/npm/buttplug@1.0.1/dist/web/buttplug.min.js");
   // document.head.appendChild(tools);
   //tools.onload =
-  buttplugConnection(Buttplug);
+  // buttplugConnection(Buttplug);
   return <TeledildonicsPopoverButton />;
 }

@@ -57,6 +57,10 @@ const messages = defineMessages({
 
 export function ExitedRoomScreen({ reason, showTerms, termsUrl, logoSrc, showSourceLink }) {
   const intl = useIntl();
+  if (reason === ExitReason.denied) {
+    const tmp = window.location.origin;
+    window.location.href = tmp + "/signin";
+  }
 
   let subtitle = null;
   if (reason === ExitReason.closed) {

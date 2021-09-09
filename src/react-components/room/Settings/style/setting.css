@@ -227,7 +227,7 @@ select.wrap-drop option {
 .wrap-drop ul.drop li.selected:after {content: "";right: 4px;width: 6px;height: 4px;background-image: url(../../../../assets/social-buttons/images/right-vhevkbox.png);background-size: cover;position: absolute;z-index: 9;margin: -7px 0 0 0;}
 .noble-gases {z-index: 99;}
 .noble-gases ul.drop {background-color: #6b6d75;}
-
+.form-head h5{font-weight: bold;text-align: center;margin-left: -30px;}
 /***********movement page************/
 .seeting-audio {color: #FFFFFF;}
 .seeting-audio .form-body ul.nav.nav-tabs.movement-tabs {max-width: 138px;margin-bottom: 15px;}
@@ -264,9 +264,9 @@ select.wrap-drop option {
 
 
 
-ul.nav.nav-tabs.head-tabs-sec li a {font-family: sans-serif;font-weight: bold;font-size: 15px;line-height: 15px;color: #A0A0A0;letter-spacing: -0.02em;}
+ul.nav.nav-tabs.head-tabs-sec li  {font-family: sans-serif;font-weight: bold;font-size: 15px;line-height: 15px;color: #A0A0A0;letter-spacing: -0.02em;}
 ul.nav.nav-tabs.head-tabs-sec {border: none;}
-ul.nav.nav-tabs.head-tabs-sec li.active a {color: #fff;}
+ul.nav.nav-tabs.head-tabs-sec li.active  {color: #fff;}
 .wrap-drop.noble-gases-third {position: relative;z-index: 999;}
 
 .hideArrow input::-webkit-outer-spin-button,

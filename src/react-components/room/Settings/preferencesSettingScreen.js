@@ -779,7 +779,7 @@ class Nav extends Component {
     const { children } = this.props;
     return (
       <div className="form-head">
-        <h6>Settings</h6>
+        <h5>Settings</h5>
         <ul className="nav nav-tabs head-tabs-sec">{children}</ul>
       </div>
     );
@@ -851,6 +851,7 @@ class PreferencesSettingScreen extends Component {
     this.state = {
       category: CATEGORY_AUDIO,
       toastHeight: "150px",
+      tab: "audio",
       preferredMic: {
         key: "preferredMic",
         prefType: PREFERENCE_LIST_ITEM_TYPE.SELECT,
@@ -1270,7 +1271,7 @@ class PreferencesSettingScreen extends Component {
                   </ul>
                 </div> */}
                   <Nav selected={this.state.category}>
-                    <li className="active">
+                    {/* <li className="active">
                       <a data-toggle="tab" href="#audio-f">
                         Audio
                       </a>
@@ -1289,6 +1290,30 @@ class PreferencesSettingScreen extends Component {
                       <a data-toggle="tab" href="#misc-f">
                         Misc.
                       </a>
+                    </li> */}
+                    <li
+                      className={this.state.tab == "audio" ? "active" : ""}
+                      onClick={() => this.setState({ tab: "audio" })}
+                    >
+                      Audio
+                    </li>
+                    <li
+                      className={this.state.tab == "graphics" ? "active" : ""}
+                      onClick={() => this.setState({ tab: "graphics" })}
+                    >
+                      Graphics
+                    </li>
+                    <li
+                      className={this.state.tab == "movement" ? "active" : ""}
+                      onClick={() => this.setState({ tab: "movement" })}
+                    >
+                      Movement
+                    </li>
+                    <li
+                      className={this.state.tab == "misc" ? "active" : ""}
+                      onClick={() => this.setState({ tab: "misc" })}
+                    >
+                      Misc
                     </li>
                     {/* {TOP_LEVEL_CATEGORIES.map((category, index) => (
                     <NavItem
@@ -1310,7 +1335,10 @@ class PreferencesSettingScreen extends Component {
                   </Nav>
                   <div className="form-body">
                     <div className="tab-content">
-                      <div className="audio-f tab-pane in active" id="audio-f">
+                      <div
+                        className={this.state.tab == "audio" ? "audio-f tab-pane in active" : "audio-f tab-pane"}
+                        id="audio-f"
+                      >
                         {/* <ul className="nav nav-tabs">
                         <li className="active">
                           <a data-toggle="tab" href="#levels">
@@ -1442,7 +1470,14 @@ class PreferencesSettingScreen extends Component {
                           </div>
                         </div>
                       </div>
-                      <div className="graphics-s tab-pane fade" id="graphics-s">
+                      <div
+                        className={
+                          this.state.tab == "graphics"
+                            ? "graphics-s tab-pane fade in active"
+                            : "graphics-s tab-pane fade"
+                        }
+                        id="graphics-s"
+                      >
                         <div className="tab-content">
                           {/* <div id="Resolution">
                           <div className="velume valume-misc d-flex align-items-center valume-top">
@@ -1510,7 +1545,14 @@ class PreferencesSettingScreen extends Component {
                           </div>
                         </div>
                       </div>
-                      <div className="movement-t tab-pane fade" id="movement-t">
+                      <div
+                        className={
+                          this.state.tab == "movement"
+                            ? "movement-t tab-pane fade in active"
+                            : "movement-t tab-pane fade"
+                        }
+                        id="movement-t"
+                      >
                         <ul className="nav nav-tabs movement-tabs">
                           <li className="active">
                             <a data-toggle="tab" href="#mode">
@@ -1646,7 +1688,10 @@ class PreferencesSettingScreen extends Component {
                           </div>
                         </div>
                       </div>
-                      <div className="misc-f tab-pane fade" id="misc-f">
+                      <div
+                        className={this.state.tab == "misc" ? "misc-f tab-pane fade in active" : "misc-f tab-pane fade"}
+                        id="misc-f"
+                      >
                         <div id="misc">
                           {/* <div className="velume valume-misc d-flex align-items-center valume-top">
                           <h2>Language: </h2>

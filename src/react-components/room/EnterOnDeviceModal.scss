@@ -16,15 +16,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 64px;
+  // height: 64px;
   border-radius: 12px;
   border: 1px solid theme.$input-border-color;
   font-size: 32px;
   font-weight: theme.$font-weight-regular;
+  word-break: break-all;
 }
 
 :local(.short-url-container) {
-  width: 204px;
+  // width: 204px;
+  width: 100%;
+  padding: 5px 0 5px 0;
 }
 
 :local(.code-letter) {
@@ -35,17 +38,27 @@
   position: relative;
  
   background: url("../../assets/images/modal-image.png");
-  color: theme.$text5-color;
+  color: var(--text5-color);
   min-width: 395px;
   margin: 0px auto;
-  //padding: 50px 100px 20px;
-  min-height: 493px;
+  padding: 37px 80px 17px;
+  min-height: 395px;
   width: auto;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  max-width: 448px;
+  max-width: 438px;
+  max-height: 480px;
+  // color: theme.$text5-color;
+  // min-width: 395px;
+  // margin: 0px auto;
+  // //padding: 50px 100px 20px;
+  // min-height: 493px;
+  // width: auto;
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
+  // max-width: 448px;
 
-  padding: 48px 96px 12px;
+  // padding: 48px 96px 12px;
 
   @media screen and (max-width: theme.$breakpoint-sm){
     
@@ -89,20 +102,22 @@
   justify-content: space-between;
   width: 100%;
   text-align: center;
-  //max-width: 242px;
+  max-width: 242px;
   margin: 0px auto;
   position: relative;
   right: 20px;
   font-size: 20px;
+
  // display: flex;
   margin-bottom: 8px;
-
+  min-width: 242px;
   h3{
     width: 100%;
   }
   &:before {
     content: "";
-    width: 335px;
+    // width: 335px;
+    width: 325px;
     position: absolute;
     left: -35px;
     right: 0;
@@ -110,6 +125,10 @@
     background-color: #f7f7f7;
     height: 1px;
     bottom: -14px;
+    @media screen and (max-width: theme.$breakpoint-sm) {
+      width: 275px;
+      left: -15px;
+    }
   }
 }
 

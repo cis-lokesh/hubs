@@ -16,7 +16,7 @@ import { useMaintainScrollPosition } from "../misc/useMaintainScrollPosition";
 import { spawnChatMessage } from "../chat-message";
 import { discordBridgesForPresences } from "../../utils/phoenix-utils";
 import { useIntl } from "react-intl";
-import Peer from "peerjs";
+// import Peer from "peerjs";
 
 const ChatContext = createContext({ messageGroups: [], sendMessage: () => {} });
 
@@ -163,46 +163,46 @@ export function ChatSidebarContainer({ scene, canSpawnMessages, presences, occup
   const [onScrollList, listRef, scrolledToBottom] = useMaintainScrollPosition(messageGroups);
   const [message, setMessage] = useState("");
   const intl = useIntl();
-  const [peer, setPeer] = useState(new Peer(sessionId));
-  let sessionIds = Object.keys(presences);
-  sessionIds = sessionIds.filter(n => ![sessionId].includes(n));
-  const [oppuser, setOppUser] = useState(sessionIds[0]);
+  // const [peer, setPeer] = useState(new Peer(sessionId));
+  // let sessionIds = Object.keys(presences);
+  // sessionIds = sessionIds.filter(n => ![sessionId].includes(n));
+  // const [oppuser, setOppUser] = useState(sessionIds[0]);
   const onKeyDown = useCallback(
     e => {
       if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault();
         sendMessage(e.target.value);
         setMessage("");
-        const conn = peer.connect(
-          oppuser,
-          {
-            reliable: true
-          }
-        );
-        const tmp = e.target.value;
-        conn.on("open", function() {
-          conn.send({ message: tmp });
-          console.log("message sent----------------------------->");
-        });
+        // const conn = peer.connect(
+        //   oppuser,
+        //   {
+        //     reliable: true
+        //   }
+        // );
+        // const tmp = e.target.value;
+        // conn.on("open", function() {
+        //   conn.send({ message: tmp });
+        //   console.log("message sent----------------------------->");
+        // });
       }
     },
     [sendMessage, setMessage]
   );
 
   const onSendMessage = useCallback(
-    peer => {
+    () => {
       sendMessage(message);
       setMessage("");
-      const conn = peer.connect(
-        oppuser,
-        {
-          reliable: true
-        }
-      );
-      conn.on("open", function() {
-        conn.send({ message: message });
-        console.log("message sent----------------------------->");
-      });
+      // const conn = peer.connect(
+      //   oppuser,
+      //   {
+      //     reliable: true
+      //   }
+      // );
+      // conn.on("open", function() {
+      //   conn.send({ message: message });
+      //   console.log("message sent----------------------------->");
+      // });
     },
     [message, sendMessage, setMessage]
   );
@@ -229,11 +229,11 @@ export function ChatSidebarContainer({ scene, canSpawnMessages, presences, occup
       if (scrolledToBottom) {
         setMessagesRead();
       }
-      peer.on("connection", function(conn) {
-        conn.on("data", data => {
-          console.log("===================================>", data);
-        });
-      });
+      // peer.on("connection", function(conn) {
+      //   conn.on("data", data => {
+      //     console.log("===================================>", data);
+      //   });
+      // });
     },
     [messageGroups, scrolledToBottom, setMessagesRead]
   );
@@ -305,7 +305,7 @@ export function ChatSidebarContainer({ scene, canSpawnMessages, presences, occup
             {message.length === 0 && canSpawnMessages ? (
               <MessageAttachmentButton onChange={onUploadAttachments} />
             ) : (
-              <SendMessageButton onClick={() => onSendMessage(peer)} disabled={message.length === 0} />
+              <SendMessageButton onClick={() => onSendMessage} disabled={message.length === 0} />
             )}
             {canSpawnMessages && <SpawnMessageButton disabled={message.length === 0} onClick={onSpawnMessage} />}
           </>
