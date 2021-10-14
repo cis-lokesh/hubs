@@ -1,0 +1,38 @@
+@use "../styles/theme.scss";
+
+:local(.modal){
+    position: relative;
+    background: url("../../assets/images/modal-image.png");
+    color: theme.$text5-color;
+    min-width: 395px;
+    margin: 0px auto;
+    padding: 50px 100px 20px;
+    min-height: 415px;
+    width: auto;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    max-width: 500px; //500px;         
+
+    @media screen and (max-width: theme.$breakpoint-sm){
+    
+        min-height: 335px;
+        max-width: 300px;
+        padding: 25px 20px 20px;
+      }
+    
+      @media screen and (min-width: theme.$breakpoint-lg){
+        min-width: 395px;
+        min-height: 415px;
+        max-width: 395px;
+        padding: 40px 20px 20px;
+      }
+  
+}
+:local(.content) {
+  overflow: hidden;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 15%;
+  margin-bottom: 15%;
+}

@@ -220,7 +220,8 @@ class UIRoot extends Component {
     showSocial: false,
     openSetting: false,
 
-    openChat: false
+    openChat: false,
+    presenceCount: 0
   };
 
   constructor(props) {
@@ -277,6 +278,10 @@ class UIRoot extends Component {
       } else {
         sceneEl.classList.remove(roomLayoutStyles.sceneSmFullScreen);
       }
+    }
+
+    if (this.state.presenceCount != this.occupantCount()) {
+      this.setState({ presenceCount: this.occupantCount() });
     }
   }
 
@@ -451,6 +456,7 @@ class UIRoot extends Component {
 
   onLoadingFinished = () => {
     this.setState({ noMoreLoadingUpdates: true });
+    this.props.scene.emit("loading_finished");
 
     if (this.props.onLoaded) {
       this.props.onLoaded();
@@ -830,7 +836,7 @@ class UIRoot extends Component {
           }}
           showEnterOnDevice={!this.state.waitingOnAudio && !this.props.entryDisallowed && !isMobileVR}
           onEnterOnDevice={() => this.attemptLink()}
-          showSpectate={!this.state.waitingOnAudio && !this.props.entryDisallowed}
+          showSpectate={!this.state.waitingOnAudio}
           onSpectate={() => this.setState({ watching: true })}
           showOptions={this.props.hubChannel.canOrWillIfCreator("update_hub")}
           onOptions={() => {
@@ -1141,7 +1147,7 @@ class UIRoot extends Component {
 
     const renderEntryFlow = (!enteredOrWatching && this.props.hub) || this.isWaitingForAutoExit();
 
-    const canCreateRoom = !configs.feature("disable_room_creation") || configs.isAdmin;
+    const canCreateRoom = !configs.feature("disable_room_creation") || configs.isAdmin();
     const canCloseRoom = this.props.hubChannel && !!this.props.hubChannel.canOrWillIfCreator("close_hub");
     const isModerator = this.props.hubChannel && this.props.hubChannel.canOrWillIfCreator("kick_users") && !isMobileVR;
 
@@ -1439,7 +1445,8 @@ class UIRoot extends Component {
                         {/* <PeopleMenuButton
                           active={this.state.sidebarId === "people"}
                           onClick={() => this.toggleSidebar("people")}
-                        /> */}
+                          presenceCount={this.state.presenceCount}
+                        />*/}
                       </ContentMenu>
                     )}
                     {!entered && !streaming && !isMobile && streamerName && <SpectatingLabel name={streamerName} />}
