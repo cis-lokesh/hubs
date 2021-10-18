@@ -25,23 +25,23 @@ export function SharePopoverButton({ items }) {
   const activeItem = filteredItems.find(item => item.active);
 
   // If there's one item to share (your smartphone camera), or an item is active (recording), then only show that button.
-  if (filteredItems.length === 1 || activeItem) {
-    const item = filteredItems[0];
-    const Icon = item.icon;
-    return (
-      <ToolbarButton
-        icon={<Icon />}
-        onClick={() => {
-          if (item.onSelect) {
-            item.onSelect(item);
-          }
-        }}
-        // label={title}
-        preset="custom3"
-        statusColor={activeItem && "recording"}
-      />
-    );
-  }
+  // if (filteredItems.length === 1 || activeItem) {
+  //   const item = filteredItems[0];
+  //   const Icon = item.icon;
+  //   return (
+  //     <ToolbarButton
+  //       icon={<Icon />}
+  //       onClick={() => {
+  //         if (item.onSelect) {
+  //           item.onSelect(item);
+  //         }
+  //       }}
+  //       // label={title}
+  //       preset="custom3"
+  //       statusColor={activeItem && "recording"}
+  //     />
+  //   );
+  // }
 
   return (
     <Popover

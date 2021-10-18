@@ -11,7 +11,8 @@ export function PageContainer({ children, ...rest }) {
 
   return (
     <Page
-      appLogo={configs.image("logo")}
+      // appLogo={configs.image("logo")}
+      appLogo={configs.image("company_logo")}
       showCloud={configs.feature("show_cloud")}
       enableSpoke={configs.feature("enable_spoke")}
       editorName={configs.translation("editor-name")}

@@ -1189,7 +1189,7 @@ class UIRoot extends Component {
             label: <FormattedMessage id="more-menu.profile" defaultMessage="Change Name & Avatar" />,
             icon: AvatarIcon,
             onClick: () => this.setSidebar("profile")
-          }
+          },
           // {
           //   id: "favorite-rooms",
           //   label: <FormattedMessage id="more-menu.favorite-rooms" defaultMessage="Favorite Rooms" />,
@@ -1217,6 +1217,15 @@ class UIRoot extends Component {
           //   icon: WorldIcon,
           //   onClick: () => this.setState({ showWorlds: true })
           // }
+          {
+            id: "settings",
+            label: <FormattedMessage id="more-menu.settings" defaultMessage="Settings" />,
+            icon: Settingicon,
+            onClick: () => {
+              console.log("calling");
+              this.setState({ openSetting: !this.openSetting });
+            }
+          }
           //,
           // {
           //   id: "events",
@@ -1230,12 +1239,12 @@ class UIRoot extends Component {
         id: "room",
         label: <FormattedMessage id="more-menu.room" defaultMessage="Room" />,
         items: [
-          {
-            id: "room-info",
-            label: <FormattedMessage id="more-menu.room-info" defaultMessage="Room Info and Settings" />,
-            icon: HomeIcon,
-            onClick: () => this.setSidebar("room-info")
-          },
+          // {
+          //   id: "room-info",
+          //   label: <FormattedMessage id="more-menu.room-info" defaultMessage="Room Info and Settings" />,
+          //   icon: HomeIcon,
+          //   onClick: () => this.setSidebar("room-info")
+          // },
           (this.props.breakpoint === "sm" || this.props.breakpoint === "md") &&
             (this.props.hub.entry_mode !== "invite" || this.props.hubChannel.can("update_hub")) && {
               id: "invite",
@@ -1407,6 +1416,7 @@ class UIRoot extends Component {
                   history={this.props.history}
                   mediaSearchStore={this.props.mediaSearchStore}
                   hubChannel={this.props.hubChannel}
+                  isModerator={isModerator}
                   onMediaSearchResultEntrySelected={(entry, selectAction) => {
                     if (entry.type === "room") {
                       this.showNonHistoriedDialog(LeaveRoomModal, {
@@ -1436,12 +1446,12 @@ class UIRoot extends Component {
                     {(!this.props.selectedObject ||
                       (this.props.breakpoint !== "sm" && this.props.breakpoint !== "md")) && (
                       <ContentMenu>
-                        {showObjectList && (
+                        {/* {showObjectList && (
                           <ObjectsMenuButton
                             active={this.state.sidebarId === "objects"}
                             onClick={() => this.toggleSidebar("objects")}
                           />
-                        )}
+                        )} */}
                         {/* <PeopleMenuButton
                           active={this.state.sidebarId === "people"}
                           onClick={() => this.toggleSidebar("people")}
@@ -1654,13 +1664,7 @@ class UIRoot extends Component {
                           />
                         )}
                        */}
-                          <SettingContainer
-                            icon={<Settingicon />}
-                            onClick={() => {
-                              console.log("calling");
-                              this.setState({ openSetting: !this.openSetting });
-                            }}
-                          />
+                          <SettingContainer icon={<WorldIcon />} onClick={() => this.setState({ showWorlds: true })} />
 
                           <ParticipantContainer icon={<PeopleIcon />} onClick={() => this.toggleSidebar("people")} />
 
@@ -1718,7 +1722,9 @@ class UIRoot extends Component {
                           onClick={() => exit2DInterstitialAndEnterVR(true)}
                         />
                       )}
-                    {entered && <SharePopoverContainer scene={this.props.scene} hubChannel={this.props.hubChannel} />}
+                    {isModerator && (
+                      <SharePopoverContainer scene={this.props.scene} hubChannel={this.props.hubChannel} />
+                    )}
                     {/* {entered && (
                       <PlacePopoverContainer
                         scene={this.props.scene}

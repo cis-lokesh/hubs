@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { GoBack } from "../input/BackClose";
 import { Modal } from "../modal/Modal";
 import { FormattedMessage, useIntl, defineMessages } from "react-intl";
-import { CancelButton, NextButton, ContinueButton } from "../input/Button";
+import { BackButton, NextButton, ContinueButton } from "../input/Button";
 import { TextInputField } from "../input/TextInputField";
 import { Column } from "../layout/Column";
 import { LegalMessage } from "./LegalMessage";
@@ -101,7 +101,7 @@ export function SubmitEmail({ onSubmitEmail, initialEmail, privacyUrl, termsUrl,
     e => {
       setAccesscode(e.target.value);
       if (!["12345", "67890"].includes(e.target.value)) {
-        setAccesscodeerror("invalid Access Code");
+        setAccesscodeerror("Invalid Access Code");
       } else {
         setAccesscodeerror(false);
       }
@@ -111,13 +111,13 @@ export function SubmitEmail({ onSubmitEmail, initialEmail, privacyUrl, termsUrl,
   return (
     <Column margin as="form" onSubmit={onSubmitForm}>
       <p className={styles.label}>
-        <h4>
+        <h3>
           {message ? (
             intl.formatMessage(message)
           ) : (
-            <FormattedMessage id="sign-in-modal.prompt" defaultMessage="Log In" />
+            <FormattedMessage id="sign-in-modal.prompt" defaultMessage="Sign Up" />
           )}
-        </h4>
+        </h3>
       </p>
       <div className={styles.signupbody}>
         <div className={styles.inputContainer}>
@@ -133,7 +133,7 @@ export function SubmitEmail({ onSubmitEmail, initialEmail, privacyUrl, termsUrl,
             placeholder="example@example.com"
           />
         </div>
-        <div className={styles.inputContainer}>
+        {/* <div className={styles.inputContainer}>
           <label className={styles.formLbl}>{"Access Code"}</label>
           <input
             className={stylessignup.signupinput}
@@ -142,12 +142,12 @@ export function SubmitEmail({ onSubmitEmail, initialEmail, privacyUrl, termsUrl,
             onBlur={onChangeAccesscode}
           />
           {accesscodeerror && <small className={styles.textError}>{accesscodeerror}</small>}
-        </div>
+        </div> */}
         <p>
           {/* <small>
             <LegalMessage termsUrl={termsUrl} privacyUrl={privacyUrl} />
           </small> */}
-          <div className={styles.formLbl}>
+          {/* <div className={styles.formLbl}>
             <FormattedMessage
               id="footer.Request-Access-Code"
               defaultMessage="<a>Request Access Code</a>"
@@ -160,9 +160,10 @@ export function SubmitEmail({ onSubmitEmail, initialEmail, privacyUrl, termsUrl,
                 )
               }}
             />
-          </div>
+          </div> */}
         </p>
-        <NextButton disabled={accesscodeerror ? true : false} type="submit" />
+        {/* <NextButton disabled={accesscodeerror ? true : false} type="submit" /> */}
+        <NextButton type="submit" />
       </div>
     </Column>
   );
@@ -182,14 +183,27 @@ SubmitEmail.propTypes = {
 
 export function WaitForVerification({ email, onCancel, showNewsletterSignup }) {
   return (
-    <Column center padding margin>
+    <Column center padding margin magiclink>
       <FormattedMessage
-        id="sign-in-modal.wait-for-verification"
-        defaultMessage="<p>Email sent to {email}!</p><p>To continue, click on the link in the email using your phone, tablet, or PC.</p><p>No email? You may not be able to create an account.</p>"
+        id="sign-in-modal.wait-for-verification1"
+        // defaultMessage="<p>Email sent to {email}!</p><p>To continue, click on the link in the email using your phone, tablet, or PC.</p><p>No email? You may not be able to create an account.</p>"
+        defaultMessage="<p>Email sent to</p>"
         // eslint-disable-next-line react/display-name
         values={{ email, p: chunks => <p>{chunks}</p> }}
       />
-      {showNewsletterSignup && (
+      <FormattedMessage
+        id="sign-in-modal.wait-for-verification2"
+        defaultMessage="<p>{email}</p>"
+        // eslint-disable-next-line react/display-name
+        values={{ email, p: chunks => <p style={{ color: "#5D5FEF" }}>{chunks}</p> }}
+      />
+      <FormattedMessage
+        id="sign-in-modal.wait-for-verification3"
+        defaultMessage="<p>To continue, click on the link in the email using your phone, tablet, or PC.</p><p>No email? Check if you entered the correct email.</p>"
+        // eslint-disable-next-line react/display-name
+        values={{ email, p: chunks => <p>{chunks}</p> }}
+      />
+      {/* {showNewsletterSignup && (
         <p>
           <small>
             <FormattedMessage
@@ -202,8 +216,8 @@ export function WaitForVerification({ email, onCancel, showNewsletterSignup }) {
             </a>
           </small>
         </p>
-      )}
-      <CancelButton onClick={onCancel} />
+      )} */}
+      <BackButton onClick={onCancel} />
     </Column>
   );
 }

@@ -45,12 +45,14 @@ MoreMenuItem.propTypes = {
 
 function MoreMenuGroup({ group, closePopover }) {
   return (
-    <li>
-      <h1 className={styles.moreMenuGroupLabel}>{group.label}</h1>
-      <ul className={styles.moreMenuItemList}>
-        {group.items.map(item => <MoreMenuItem key={item.id} item={item} closePopover={closePopover} />)}
-      </ul>
-    </li>
+    group.items.length > 0 && (
+      <li>
+        {/* <h1 className={styles.moreMenuGroupLabel}>{group.label}</h1> */}
+        <ul className={styles.moreMenuItemList}>
+          {group.items.map(item => <MoreMenuItem key={item.id} item={item} closePopover={closePopover} />)}
+        </ul>
+      </li>
+    )
   );
 }
 
@@ -104,6 +106,7 @@ export function MoreMenuPopoverButton({ menu }) {
       offsetDistance={28}
       isVisible={visible}
       onChangeVisible={setVisible}
+      place="moremenu"
     >
       {({ togglePopover, popoverVisible, triggerRef }) => (
         <ToolbarButton

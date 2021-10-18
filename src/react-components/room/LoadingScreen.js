@@ -12,7 +12,7 @@ export function LoadingScreen({ logoSrc, message, infoMessages }) {
       logoSrc={logoSrc}
       center={
         <>
-          <p>{message == "Loading" && <div className="loadinggradient" />}</p>
+          <div>{message == "Loading" && <div className="loadinggradient" />}</div>
         </>
       }
       // bottom={

@@ -25,7 +25,7 @@ export const presets = [
 ];
 
 export const Button = memo(
-  forwardRef(({ as, sm, lg, xl, xxl, preset, className, children, ...rest }, ref) => {
+  forwardRef(({ as, sm, lg, xl, xxl, preset, className, children, signout, ...rest }, ref) => {
     const ButtonComponent = as;
     const buttonProps = ButtonComponent === "button" ? { type: "button" } : {};
 
@@ -35,7 +35,7 @@ export const Button = memo(
           styles.button,
           textInputStyles.button,
           styles[preset],
-          { [styles.sm]: sm, [styles.lg]: lg, [styles.xl]: xl, [styles.xxl]: xxl },
+          { [styles.sm]: sm, [styles.lg]: lg, [styles.xl]: xl, [styles.xxl]: xxl, [styles.signout]: signout === true },
           className
         )}
         {...buttonProps}
@@ -53,7 +53,8 @@ Button.propTypes = {
   preset: PropTypes.oneOf(presets),
   className: PropTypes.string,
   children: PropTypes.node,
-  sm: PropTypes.bool
+  sm: PropTypes.bool,
+  signout: PropTypes.bool
 };
 
 Button.defaultProps = {
@@ -97,6 +98,29 @@ export function ApplyButton(props) {
   return (
     <Button preset="accent5" {...props}>
       <FormattedMessage id="button.apply" defaultMessage="Apply" />
+    </Button>
+  );
+}
+
+export function BackButton(props) {
+  return (
+    <Button preset="custom3" {...props}>
+      <FormattedMessage id="button.back" defaultMessage="Back" />
+    </Button>
+  );
+}
+
+export function SignInButton(props) {
+  return (
+    <Button preset="custom3" {...props}>
+      <FormattedMessage id="button.signin" defaultMessage="Sign In" />
+    </Button>
+  );
+}
+export function SignOutButton(props) {
+  return (
+    <Button preset="custom3" {...props}>
+      <FormattedMessage id="button.signout" defaultMessage="Sign Out" />
     </Button>
   );
 }

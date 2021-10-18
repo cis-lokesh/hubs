@@ -18,6 +18,7 @@ export const Column = forwardRef(
       overflow,
       children,
       overrideStyles,
+      magiclink,
       ...rest
     },
     ref
@@ -41,7 +42,8 @@ export const Column = forwardRef(
             [styles.grow]: grow,
             [styles.overflow]: overflow,
             [styles.margins]: margin,
-            [styles.alignleft]: alignleft
+            [styles.alignleft]: alignleft,
+            [styles.magiclink]: magiclink
           },
           className
           // overrideStyles.column ? overrideStyles.column : styles.column
@@ -62,7 +64,8 @@ Column.propTypes = {
   centerMd: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   center: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   grow: PropTypes.bool,
-  overflow: PropTypes.bool
+  overflow: PropTypes.bool,
+  magiclink: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 };
 
 Column.defaultProps = {

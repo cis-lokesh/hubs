@@ -3,7 +3,6 @@ import "./webxr-bypass-hacks";
 import configs from "./utils/configs";
 import "./utils/theme";
 import "@babel/polyfill";
-
 console.log(`App version: ${process.env.BUILD_VERSION || "?"}`);
 
 import "./react-components/styles/global.scss";

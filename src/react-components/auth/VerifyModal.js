@@ -4,7 +4,7 @@ import { Spinner } from "../misc/Spinner";
 import { Modal } from "../modal/Modal";
 import { Column } from "../layout/Column";
 import { FormattedMessage } from "react-intl";
-
+import styles from "./VerifyModal.scss";
 export const VerificationStep = {
   verifying: "verifying",
   complete: "complete",
@@ -32,8 +32,9 @@ export function EmailVerified({ origin }) {
       <p>
         <FormattedMessage
           id="verify-modal.close-window"
-          defaultMessage="Please close this browser window and return to {origin}."
-          values={{ origin }}
+          // defaultMessage="Please close this browser window and return to {origin}."
+          defaultMessage="Please close this browser window and return to the open tab."
+          // values={{ origin }}
         />
       </p>
     </Column>
@@ -65,7 +66,10 @@ VerificationError.propTypes = {
 
 export function VerifyModal({ children }) {
   return (
-    <Modal title={<FormattedMessage id="verify-modal.title" defaultMessage="Verify" />} verify={true} disableFullscreen>
+    // <Modal title={<FormattedMessage id="verify-modal.title" defaultMessage="Verify" />} verify={true} disableFullscreen>
+    //   {children}
+    // </Modal>
+    <Modal verify={true} overrideStyles={styles} disableFullscreen>
       {children}
     </Modal>
   );

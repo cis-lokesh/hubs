@@ -1295,25 +1295,25 @@ class PreferencesSettingScreen extends Component {
                       className={this.state.tab == "audio" ? "active" : ""}
                       onClick={() => this.setState({ tab: "audio" })}
                     >
-                      Audio
+                      <a href="#">Audio</a>
                     </li>
                     <li
                       className={this.state.tab == "graphics" ? "active" : ""}
                       onClick={() => this.setState({ tab: "graphics" })}
                     >
-                      Graphics
+                      <a href="#">Graphics</a>
                     </li>
                     <li
                       className={this.state.tab == "movement" ? "active" : ""}
                       onClick={() => this.setState({ tab: "movement" })}
                     >
-                      Movement
+                      <a href="#">Movement</a>
                     </li>
                     <li
                       className={this.state.tab == "misc" ? "active" : ""}
                       onClick={() => this.setState({ tab: "misc" })}
                     >
-                      Misc
+                      <a href="#">Misc</a>
                     </li>
                     {/* {TOP_LEVEL_CATEGORIES.map((category, index) => (
                     <NavItem

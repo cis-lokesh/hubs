@@ -151,8 +151,8 @@ $semi-bold: 600;
   flex-flow: row;
   width: 800px;
   max-width: 100%;
-  justify-content:center;
-  -webkit-justify-content: center;
+  // justify-content:center;
+  -webkit-justify-content: left;
   -moz-justify-content: center;
  
   p{
@@ -164,15 +164,25 @@ $semi-bold: 600;
   display:block;  
   margin:10px;
   text-align: center;
+  font-family: "Lekton";
+  font-size: 15px;
 }
 
 :local(.link){
   text-decoration: none;
   color:white;
   img {
-    height: 190px;
+    height: 200px;
     width: 250px;
-    border-radius: 50%;
+    // border-radius: 50%;
+    -webkit-mask-image: url(../images/world_frame.svg);
+    mask-image: url(../images//world_frame.svg);
+    -webkit-mask-position: center center;
+    mask-position: center center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    @media screen and (max-width: theme.$breakpoint-sm){
+    }
   }
   &:hover{
     color:theme.$active;
@@ -183,6 +193,10 @@ $semi-bold: 600;
     text-decoration: none;
   }
 
+}
+:local(.world-screen-scrolls) {
+  overflow-y: auto;
+  width: 100%;
 }
  
  

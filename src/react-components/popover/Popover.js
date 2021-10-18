@@ -153,7 +153,8 @@ export function Popover({
               ref={setPopperElement}
               className={classNames(styles.popover, {
                 [styles.fullscreen]: fullscreen,
-                [styles.opaquebackground]: place != "teledildonics",
+                [styles.morebuttonpopover]: place == "moremenu" && place != "teledildonics",
+                [styles.opaquebackground]: place != "moremenu",
                 [styles.teledildonicspopover]: place == "teledildonics",
                 [styles.placepopover]: place == "place",
                 [styles.sharepopover]: place == "share"
@@ -164,7 +165,7 @@ export function Popover({
               {showTitle && (
                 <div className={styles.header}>
                   <span onClick={closePopover} className={styles.closeBtn}>
-                    x
+                    {"x"}
                   </span>
                   <p className={styles.headTitle}>{title}</p>
                 </div>

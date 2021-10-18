@@ -72,7 +72,9 @@
 :local(.label){
     // text-align: left !important;
     margin-bottom: 20px;
-    padding: 0px 35px 0px 55px;
+    // padding: 0px 35px 0px 55px;
+    margin: auto;
+    width: 170px;
 }
 
 :local(.column) {
@@ -88,13 +90,14 @@
   }
 
 :local(.signupbody) {
-  width: 160px;
+  width: 170px;
   margin: 0px auto;
+  margin-top: 20px;
 }
 
 :local(.form-lbl){
   font-style: italic;
-  font-size: 10px;
+  font-size: 14px;
   line-height: 20px;
   letter-spacing: -0.02em;
   color: #FFFFFF;
@@ -103,7 +106,7 @@
 
 :local(.text-error){
   font-style: italic;
-  font-size: 8px;
+  font-size: 13px;
   line-height: 8px;
   letter-spacing: -0.02em;
   color: #FFFFFF;

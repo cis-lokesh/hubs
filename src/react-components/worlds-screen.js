@@ -7,7 +7,7 @@ import { faUndo } from "@fortawesome/free-solid-svg-icons/faUndo";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons/faExclamationTriangle";
 import { FormattedMessage, injectIntl, useIntl, defineMessages } from "react-intl";
 import styles from "../assets/stylesheets/worlds-screen.scss";
-import w1 from "../assets/images/w1.png";
+import w1 from "../assets/images/w1.jpg";
 import w2 from "../assets/images/w2.jpg";
 import w3 from "../assets/images/w3.png";
 import w4 from "../assets/images/w4.png";
@@ -154,9 +154,10 @@ class World extends Component {
     const { children } = this.props;
     return (
       <>
-        <Card src={w1} defaultmessage="World1" description="World1" world="WorldLink1" />
-        <Card src={w2} defaultmessage="World2" description="World2" world="WorldLink2" />
+        {/* <Card src={w2} defaultmessage="World1" description="World1" world="WorldLink2" /> */}
+        <Card src={w1} defaultmessage="World1" description="World1" world="WorldLink2" />
         <Card src={w3} defaultmessage="World3" description="World3" world="WorldLink3" />
+        <Card src={w4} defaultmessage="World4" description="World4" world="WorldLink4" />
       </>
     );
   }
@@ -166,9 +167,9 @@ class World2 extends Component {
     const { children } = this.props;
     return (
       <>
-        <Card src={w4} defaultmessage="World4" description="World4" world="WorldLink4" />
         <Card src={w5} defaultmessage="World5" description="World5" world="WorldLink5" />
         <Card src={w6} defaultmessage="World6" description="World6" world="WorldLink6" />
+        <Card src={w7} defaultmessage="World7" description="World7" world="WorldLink7" />
       </>
     );
   }
@@ -179,7 +180,6 @@ class World3 extends Component {
     const { children } = this.props;
     return (
       <>
-        <Card src={w7} defaultmessage="World7" description="World7" world="WorldLink7" />
         <Card src={w8} defaultmessage="World8" description="World8" world="WorldLink8" />
         <Card src={w9} defaultmessage="World9" description="World9" world="WorldLink9" />
       </>
@@ -237,19 +237,21 @@ class WorldsScreen extends Component {
             // selected={category === this.state.category}
           />
         </Nav>
-        <div className={styles.contentContainer}>
-          <div className={styles.scrollingContent}>
-            <World />
+        <div className={styles.worldScreenScrolls}>
+          <div className={styles.contentContainer}>
+            <div className={styles.scrollingContent}>
+              <World />
+            </div>
           </div>
-        </div>
-        <div className={styles.contentContainer}>
-          <div className={styles.scrollingContent}>
-            <World2 />
+          <div className={styles.contentContainer}>
+            <div className={styles.scrollingContent}>
+              <World2 />
+            </div>
           </div>
-        </div>
-        <div className={styles.contentContainer}>
-          <div className={styles.scrollingContent}>
-            <World3 />
+          <div className={styles.contentContainer}>
+            <div className={styles.scrollingContent}>
+              <World3 />
+            </div>
           </div>
         </div>
       </div>

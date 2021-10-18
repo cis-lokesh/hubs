@@ -140,7 +140,8 @@ class MediaBrowserContainer extends Component {
     performConditionalSignIn: PropTypes.func,
     showNonHistoriedDialog: PropTypes.func.isRequired,
     scene: PropTypes.object.isRequired,
-    store: PropTypes.object.isRequired
+    store: PropTypes.object.isRequired,
+    isModerator: PropTypes.bool
   };
 
   state = { query: "", facets: [], showNav: true, selectNextResult: false, clearStashedQueryOnClose: false };
@@ -336,6 +337,7 @@ class MediaBrowserContainer extends Component {
 
   onCreateAvatar = () => {
     window.dispatchEvent(new CustomEvent("action_create_avatar"));
+    this.close;
   };
 
   processThumbnailUrl = (entry, thumbnailWidth, thumbnailHeight) => {
@@ -485,13 +487,14 @@ class MediaBrowserContainer extends Component {
         entries.length > 0 ||
         !showEmptyStringOnNoResult ? (
           <>
-            {urlSource === "avatars" && (
-              <CreateTile
-                type="avatar"
-                onClick={this.onCreateAvatar}
-                label={<FormattedMessage id="media-browser.create-avatar" defaultMessage="Create Avatar" />}
-              />
-            )}
+            {this.props.isModerator &&
+              urlSource === "avatars" && (
+                <CreateTile
+                  type="avatar"
+                  onClick={this.onCreateAvatar}
+                  label={<FormattedMessage id="media-browser.create-avatar" defaultMessage="Create Avatar" />}
+                />
+              )}
             {urlSource === "scenes" &&
               configs.feature("enable_spoke") && (
                 <CreateTile

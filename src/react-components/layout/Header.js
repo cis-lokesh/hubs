@@ -6,7 +6,7 @@ import { faCog } from "@fortawesome/free-solid-svg-icons/faCog";
 import maskEmail from "../../utils/mask-email";
 import styles from "./Header.scss";
 import { Container } from "./Container";
-
+import { SignInButton, SignOutButton } from "../input/Button";
 export function Header({
   appName,
   appLogo,
@@ -90,12 +90,14 @@ export function Header({
                 />
               </span>{" "}
               <a href="#" onClick={onSignOut}>
-                <FormattedMessage id="header.sign-out" defaultMessage="Sign Out" />
+                {/* <FormattedMessage id="header.sign-out" defaultMessage="Sign Out" /> */}
+                <SignOutButton signout id="header.sign-out" name="Sign In" />
               </a>
             </div>
           ) : (
             <a href="/signin" rel="noreferrer noopener">
-              <FormattedMessage id="header.sign-in" defaultMessage="Sign In" />
+              {/* <FormattedMessage id="header.sign-in" defaultMessage="Sign In" /> */}
+              <SignInButton id="header.sign-in" name="Sign In" />
             </a>
           )}
         </div>

@@ -83,8 +83,12 @@
 
 :local(.margins) {
   margin-top: 15%;
-  margin-bottom:5% ;
+  margin-bottom:15% ;
 }
 :local(.alignleft) {
   margin-right: 30px;
+}
+:local(.magiclink) {
+  padding-left: 26px;
+  padding-right: 26px;
 }

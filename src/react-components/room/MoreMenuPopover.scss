@@ -1,7 +1,8 @@
 @use "../styles/theme.scss";
 
 :local(.more-menu-popover) {
-  min-width: 240px;
+  // min-width: 240px;
+  min-width: 200px;
   padding-top: 16px;
 
   @media(min-width: theme.$breakpoint-lg) {
@@ -19,7 +20,7 @@
 
 :local(.more-menu-item-list) {
   padding-top: 4px;
-  padding-bottom: 16px;
+  // padding-bottom: 16px;
 }
 
 :local(.more-menu-item-target) {
@@ -31,7 +32,7 @@
   color: theme.$text5-color;
   font-size: theme.$font-size-sm;
   font-weight: theme.$font-weight-medium;
-
+  border-radius: 50px;
   & > * {
     margin-right: 16px;
 
